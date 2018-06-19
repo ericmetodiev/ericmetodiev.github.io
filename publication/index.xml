@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Eric M. Metodiev</title>
+    <link>/publication/</link>
+    <description>Recent content in Publications on Eric M. Metodiev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2018</copyright>
+    <lastBuildDate>Wed, 06 Jun 2018 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018</title>
+      <link>/publication/2018/</link>
+      <pubDate>Sat, 16 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Learning to Classify from Impure Samples</title>
+      <link>/publication/weaksupervision/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/weaksupervision/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jet Topics: Disentangling Quarks and Gluons at Colliders</title>
+      <link>/publication/jettopics/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/jettopics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Energy flow polynomials: A complete linear basis for jet substructure</title>
+      <link>/publication/energyflowpolynomials/</link>
+      <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/energyflowpolynomials/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2017</title>
+      <link>/publication/2017/</link>
+      <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/2017/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pileup Mitigation with Machine Learning (PUMML)</title>
+      <link>/publication/pumml/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/pumml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Classification without labels: Learning from mixed samples in high energy physics</title>
+      <link>/publication/classificationwithoutlabels/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/classificationwithoutlabels/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deep learning in color: Towards automated quark/gluon jet discrimination</title>
+      <link>/publication/deeplearningqg/</link>
+      <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/deeplearningqg/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2016</title>
+      <link>/publication/2016/</link>
+      <pubDate>Sat, 31 Dec 2016 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/2016/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A storage ring experiment to detect a proton electric dipole moment</title>
+      <link>/publication/protonedm/</link>
+      <pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/protonedm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Numerical approach for unstructured quantum key distribution</title>
+      <link>/publication/unstructuredqkd/</link>
+      <pubDate>Fri, 20 May 2016 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/unstructuredqkd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2015</title>
+      <link>/publication/2015/</link>
+      <pubDate>Thu, 31 Dec 2015 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/2015/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analytical benchmarks for precision particle tracking in electric and magnetic rings</title>
+      <link>/publication/analyticalbenchmarks/</link>
+      <pubDate>Sun, 11 Oct 2015 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/analyticalbenchmarks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2014</title>
+      <link>/publication/2014/</link>
+      <pubDate>Wed, 31 Dec 2014 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/2014/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fringe E-fields of flat &amp; cylindrical deflectors in electrostatic charged particle storage rings</title>
+      <link>/publication/fringeefields/</link>
+      <pubDate>Fri, 18 Jul 2014 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/fringeefields/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
