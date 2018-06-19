@@ -2,150 +2,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eric M. Metodiev on Eric M. Metodiev</title>
-    <link>/</link>
+    <link>www.ericmetodiev.com/</link>
     <description>Recent content in Eric M. Metodiev on Eric M. Metodiev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0400</lastBuildDate>
-    <atom:link href="/" rel="self" type="application/rss+xml" />
+    <atom:link href="www.ericmetodiev.com/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>2018</title>
-      <link>/publication/2018/</link>
+      <link>www.ericmetodiev.com/publication/2018/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 -0400</pubDate>
       
-      <guid>/publication/2018/</guid>
+      <guid>www.ericmetodiev.com/publication/2018/</guid>
       <description></description>
     </item>
     
     <item>
       <title>2018</title>
-      <link>/talk/2018/</link>
+      <link>www.ericmetodiev.com/talk/2018/</link>
       <pubDate>Sat, 16 Jun 2018 00:00:00 -0400</pubDate>
       
-      <guid>/talk/2018/</guid>
+      <guid>www.ericmetodiev.com/talk/2018/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Learning to Classify from Impure Samples</title>
-      <link>/publication/weaksupervision/</link>
+      <link>www.ericmetodiev.com/publication/weaksupervision/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 -0400</pubDate>
       
-      <guid>/publication/weaksupervision/</guid>
+      <guid>www.ericmetodiev.com/publication/weaksupervision/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jet Topics: Disentangling Quarks and Gluons at Colliders</title>
-      <link>/publication/jettopics/</link>
+      <link>www.ericmetodiev.com/publication/jettopics/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 -0400</pubDate>
       
-      <guid>/publication/jettopics/</guid>
+      <guid>www.ericmetodiev.com/publication/jettopics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Energy flow polynomials: A complete linear basis for jet substructure</title>
-      <link>/publication/energyflowpolynomials/</link>
+      <link>www.ericmetodiev.com/publication/energyflowpolynomials/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
       
-      <guid>/publication/energyflowpolynomials/</guid>
+      <guid>www.ericmetodiev.com/publication/energyflowpolynomials/</guid>
       <description></description>
     </item>
     
     <item>
       <title>2017</title>
-      <link>/publication/2017/</link>
+      <link>www.ericmetodiev.com/publication/2017/</link>
       <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
       
-      <guid>/publication/2017/</guid>
+      <guid>www.ericmetodiev.com/publication/2017/</guid>
       <description></description>
     </item>
     
     <item>
       <title>2017</title>
-      <link>/talk/2017/</link>
+      <link>www.ericmetodiev.com/talk/2017/</link>
       <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/2017/</guid>
+      <guid>www.ericmetodiev.com/talk/2017/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pileup Mitigation with Machine Learning (PUMML)</title>
-      <link>/publication/pumml/</link>
+      <link>www.ericmetodiev.com/publication/pumml/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 -0500</pubDate>
       
-      <guid>/publication/pumml/</guid>
+      <guid>www.ericmetodiev.com/publication/pumml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Classification without labels: Learning from mixed samples in high energy physics</title>
-      <link>/publication/classificationwithoutlabels/</link>
+      <link>www.ericmetodiev.com/publication/classificationwithoutlabels/</link>
       <pubDate>Wed, 25 Oct 2017 00:00:00 -0400</pubDate>
       
-      <guid>/publication/classificationwithoutlabels/</guid>
+      <guid>www.ericmetodiev.com/publication/classificationwithoutlabels/</guid>
       <description></description>
     </item>
     
     <item>
       <title>(Machine) Learning to Remove Pileup at the LHC</title>
-      <link>/talk/mitjournal2017/</link>
+      <link>www.ericmetodiev.com/talk/mitjournal2017/</link>
       <pubDate>Fri, 08 Sep 2017 00:00:00 -0400</pubDate>
       
-      <guid>/talk/mitjournal2017/</guid>
+      <guid>www.ericmetodiev.com/talk/mitjournal2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Deep learning in color: Towards automated quark/gluon jet discrimination</title>
-      <link>/publication/deeplearningqg/</link>
+      <link>www.ericmetodiev.com/publication/deeplearningqg/</link>
       <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/publication/deeplearningqg/</guid>
+      <guid>www.ericmetodiev.com/publication/deeplearningqg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A complete, linear basis for (machine) learning jet substructure</title>
-      <link>/talk/mlforjetsa2017/</link>
+      <link>www.ericmetodiev.com/talk/mlforjetsa2017/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/mlforjetsa2017/</guid>
+      <guid>www.ericmetodiev.com/talk/mlforjetsa2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Learning to Remove Pileup at the LHC with Jet Images</title>
-      <link>/talk/acat2017/</link>
+      <link>www.ericmetodiev.com/talk/acat2017/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/acat2017/</guid>
+      <guid>www.ericmetodiev.com/talk/acat2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Pileup Mitigation with Machine Learning</title>
-      <link>/talk/boost2017/</link>
+      <link>www.ericmetodiev.com/talk/boost2017/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/boost2017/</guid>
+      <guid>www.ericmetodiev.com/talk/boost2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Weak Supervision in High Dimensions</title>
-      <link>/talk/mlforjetsb2017/</link>
+      <link>www.ericmetodiev.com/talk/mlforjetsb2017/</link>
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/mlforjetsb2017/</guid>
+      <guid>www.ericmetodiev.com/talk/mlforjetsb2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>

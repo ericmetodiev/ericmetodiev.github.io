@@ -2,85 +2,85 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2 on Eric M. Metodiev</title>
-    <link>/publication_types/2/</link>
+    <link>www.ericmetodiev.com/publication_types/2/</link>
     <description>Recent content in 2 on Eric M. Metodiev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 04 Apr 2018 00:00:00 -0400</lastBuildDate>
     
-	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="www.ericmetodiev.com/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Energy flow polynomials: A complete linear basis for jet substructure</title>
-      <link>/publication/energyflowpolynomials/</link>
+      <link>www.ericmetodiev.com/publication/energyflowpolynomials/</link>
       <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
       
-      <guid>/publication/energyflowpolynomials/</guid>
+      <guid>www.ericmetodiev.com/publication/energyflowpolynomials/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Pileup Mitigation with Machine Learning (PUMML)</title>
-      <link>/publication/pumml/</link>
+      <link>www.ericmetodiev.com/publication/pumml/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 -0500</pubDate>
       
-      <guid>/publication/pumml/</guid>
+      <guid>www.ericmetodiev.com/publication/pumml/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Classification without labels: Learning from mixed samples in high energy physics</title>
-      <link>/publication/classificationwithoutlabels/</link>
+      <link>www.ericmetodiev.com/publication/classificationwithoutlabels/</link>
       <pubDate>Wed, 25 Oct 2017 00:00:00 -0400</pubDate>
       
-      <guid>/publication/classificationwithoutlabels/</guid>
+      <guid>www.ericmetodiev.com/publication/classificationwithoutlabels/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deep learning in color: Towards automated quark/gluon jet discrimination</title>
-      <link>/publication/deeplearningqg/</link>
+      <link>www.ericmetodiev.com/publication/deeplearningqg/</link>
       <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
       
-      <guid>/publication/deeplearningqg/</guid>
+      <guid>www.ericmetodiev.com/publication/deeplearningqg/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A storage ring experiment to detect a proton electric dipole moment</title>
-      <link>/publication/protonedm/</link>
+      <link>www.ericmetodiev.com/publication/protonedm/</link>
       <pubDate>Tue, 29 Nov 2016 00:00:00 -0500</pubDate>
       
-      <guid>/publication/protonedm/</guid>
+      <guid>www.ericmetodiev.com/publication/protonedm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Numerical approach for unstructured quantum key distribution</title>
-      <link>/publication/unstructuredqkd/</link>
+      <link>www.ericmetodiev.com/publication/unstructuredqkd/</link>
       <pubDate>Fri, 20 May 2016 00:00:00 -0400</pubDate>
       
-      <guid>/publication/unstructuredqkd/</guid>
+      <guid>www.ericmetodiev.com/publication/unstructuredqkd/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Analytical benchmarks for precision particle tracking in electric and magnetic rings</title>
-      <link>/publication/analyticalbenchmarks/</link>
+      <link>www.ericmetodiev.com/publication/analyticalbenchmarks/</link>
       <pubDate>Sun, 11 Oct 2015 00:00:00 -0400</pubDate>
       
-      <guid>/publication/analyticalbenchmarks/</guid>
+      <guid>www.ericmetodiev.com/publication/analyticalbenchmarks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Fringe E-fields of flat &amp; cylindrical deflectors in electrostatic charged particle storage rings</title>
-      <link>/publication/fringeefields/</link>
+      <link>www.ericmetodiev.com/publication/fringeefields/</link>
       <pubDate>Fri, 18 Jul 2014 00:00:00 -0400</pubDate>
       
-      <guid>/publication/fringeefields/</guid>
+      <guid>www.ericmetodiev.com/publication/fringeefields/</guid>
       <description></description>
     </item>
     
