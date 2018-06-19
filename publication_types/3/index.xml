@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>3 on Eric M. Metodiev</title>
-    <link>www.ericmetodiev.com/publication_types/3/</link>
+    <link>/publication_types/3/</link>
     <description>Recent content in 3 on Eric M. Metodiev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
     <lastBuildDate>Wed, 06 Jun 2018 00:00:00 -0400</lastBuildDate>
     
-	<atom:link href="www.ericmetodiev.com/publication_types/3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/publication_types/3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Learning to Classify from Impure Samples</title>
-      <link>www.ericmetodiev.com/publication/weaksupervision/</link>
+      <link>/publication/weaksupervision/</link>
       <pubDate>Wed, 06 Jun 2018 00:00:00 -0400</pubDate>
       
-      <guid>www.ericmetodiev.com/publication/weaksupervision/</guid>
+      <guid>/publication/weaksupervision/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jet Topics: Disentangling Quarks and Gluons at Colliders</title>
-      <link>www.ericmetodiev.com/publication/jettopics/</link>
+      <link>/publication/jettopics/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 -0400</pubDate>
       
-      <guid>www.ericmetodiev.com/publication/jettopics/</guid>
+      <guid>/publication/jettopics/</guid>
       <description></description>
     </item>
     
