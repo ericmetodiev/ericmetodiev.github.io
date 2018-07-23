@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Wed, 04 Apr 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 06 Jun 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Learning to classify from impure samples with high-dimensional data</title>
+      <link>/publication/weaksupervision/</link>
+      <pubDate>Wed, 06 Jun 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/weaksupervision/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Energy flow polynomials: A complete linear basis for jet substructure</title>
