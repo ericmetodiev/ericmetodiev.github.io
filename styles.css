@@ -756,7 +756,8 @@ article .article-metadata {
 .pub-list-item .pub-authors {
   font-style: normal;
   font-size: 1rem;
-  color: #3170A5;
+  /*color: #3170A5;*/
+  color: #000000;
   padding-left:2em;
   line-height: 1.2em;
 
