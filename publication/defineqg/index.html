@@ -17,10 +17,10 @@
       
     
   
-  <meta name="description" content="We introduce the energy flow polynomials: a complete set of jet substructure observables which form a discrete linear basis for all infrared- and collinear-safe observables. Energy flow polynomials are multiparticle energy correlators with specific angular structures that are a direct consequence of infrared and collinear safety. We establish a powerful graph-theoretic representation of the energy flow polynomials which allows us to design efficient algorithms for their computation. Many common jet observables are exact linear combinations of energy flow polynomials, and we demonstrate the linear spanning nature of the energy flow basis by performing regression for several common jet observables. Using linear classification with energy flow polynomials, we achieve excellent performance on three representative jet tagging problems: quark/gluon discrimination, boosted W tagging, and boosted top tagging. The energy flow basis provides a systematic framework for complete investigations of jet substructure using linear methods.">
+  <meta name="description" content="While &#34;quark&#34; and &#34;gluon&#34; jets are often treated as separate, well-defined objects in both theoretical and experimental contexts, no precise, practical, and hadron-level definition of jet flavor presently exists. To remedy this issue, we develop and advocate for a data-driven, operational definition of quark and gluon jets that is readily applicable at colliders. Rather than specifying a per-jet flavor label, we aggregately define quark and gluon jets at the distribution level in terms of measured hadronic cross sections. Intuitively, quark and gluon jets emerge as the two maximally separable categories within two jet samples in data. Benefiting from recent work on data-driven classifiers and topic modeling for jets, we show that the practical tools needed to implement our definition already exist for experimental applications. As an informative example, we demonstrate the power of our operational definition using Z&#43;jet and dijet samples, illustrating that pure quark and gluon distributions and fractions can be successfully extracted in a fully well-defined manner.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/publication/energyflowpolynomials/">
+  <link rel="alternate" hreflang="en-us" href="/publication/defineqg/">
 
   
 
@@ -69,25 +69,25 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/publication/energyflowpolynomials/">
+  <link rel="canonical" href="/publication/defineqg/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Eric M. Metodiev">
-  <meta property="og:url" content="/publication/energyflowpolynomials/">
-  <meta property="og:title" content="Energy flow polynomials: A complete linear basis for jet substructure | Eric M. Metodiev">
-  <meta property="og:description" content="We introduce the energy flow polynomials: a complete set of jet substructure observables which form a discrete linear basis for all infrared- and collinear-safe observables. Energy flow polynomials are multiparticle energy correlators with specific angular structures that are a direct consequence of infrared and collinear safety. We establish a powerful graph-theoretic representation of the energy flow polynomials which allows us to design efficient algorithms for their computation. Many common jet observables are exact linear combinations of energy flow polynomials, and we demonstrate the linear spanning nature of the energy flow basis by performing regression for several common jet observables. Using linear classification with energy flow polynomials, we achieve excellent performance on three representative jet tagging problems: quark/gluon discrimination, boosted W tagging, and boosted top tagging. The energy flow basis provides a systematic framework for complete investigations of jet substructure using linear methods.">
+  <meta property="og:url" content="/publication/defineqg/">
+  <meta property="og:title" content="An operational definition of quark and gluon jets | Eric M. Metodiev">
+  <meta property="og:description" content="While &#34;quark&#34; and &#34;gluon&#34; jets are often treated as separate, well-defined objects in both theoretical and experimental contexts, no precise, practical, and hadron-level definition of jet flavor presently exists. To remedy this issue, we develop and advocate for a data-driven, operational definition of quark and gluon jets that is readily applicable at colliders. Rather than specifying a per-jet flavor label, we aggregately define quark and gluon jets at the distribution level in terms of measured hadronic cross sections. Intuitively, quark and gluon jets emerge as the two maximally separable categories within two jet samples in data. Benefiting from recent work on data-driven classifiers and topic modeling for jets, we show that the practical tools needed to implement our definition already exist for experimental applications. As an informative example, we demonstrate the power of our operational definition using Z&#43;jet and dijet samples, illustrating that pure quark and gluon distributions and fractions can be successfully extracted in a fully well-defined manner.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2018-04-04T00:00:00-04:00">
+  <meta property="article:published_time" content="2018-09-04T00:00:00-04:00">
   
-  <meta property="article:modified_time" content="2018-04-04T00:00:00-04:00">
-  
-
-  
+  <meta property="article:modified_time" content="2018-09-04T00:00:00-04:00">
   
 
-  <title>Energy flow polynomials: A complete linear basis for jet substructure | Eric M. Metodiev</title>
+  
+  
+
+  <title>An operational definition of quark and gluon jets | Eric M. Metodiev</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -207,7 +207,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Energy flow polynomials: A complete linear basis for jet substructure</h1>
+    <h1 itemprop="name">An operational definition of quark and gluon jets</h1>
     <span class="pub-authors" itemprop="author">
       
       Patrick T. Komiske, Eric M. Metodiev, Jesse Thaler
@@ -219,12 +219,12 @@
     </span>
 
     
-    <img src="/img/graphics/energyflowpolynomials_graphic.png" class="pub-banner" itemprop="image">
+    <img src="/img/graphics/defineqg_graphic.png" class="pub-banner" itemprop="image">
     
 
     
     <h3>Abstract</h3>
-    <p class="pub-abstract" itemprop="text">We introduce the energy flow polynomials: a complete set of jet substructure observables which form a discrete linear basis for all infrared- and collinear-safe observables. Energy flow polynomials are multiparticle energy correlators with specific angular structures that are a direct consequence of infrared and collinear safety. We establish a powerful graph-theoretic representation of the energy flow polynomials which allows us to design efficient algorithms for their computation. Many common jet observables are exact linear combinations of energy flow polynomials, and we demonstrate the linear spanning nature of the energy flow basis by performing regression for several common jet observables. Using linear classification with energy flow polynomials, we achieve excellent performance on three representative jet tagging problems: quark/gluon discrimination, boosted W tagging, and boosted top tagging. The energy flow basis provides a systematic framework for complete investigations of jet substructure using linear methods.</p>
+    <p class="pub-abstract" itemprop="text">While &ldquo;quark&rdquo; and &ldquo;gluon&rdquo; jets are often treated as separate, well-defined objects in both theoretical and experimental contexts, no precise, practical, and hadron-level definition of jet flavor presently exists. To remedy this issue, we develop and advocate for a data-driven, operational definition of quark and gluon jets that is readily applicable at colliders. Rather than specifying a per-jet flavor label, we aggregately define quark and gluon jets at the distribution level in terms of measured hadronic cross sections. Intuitively, quark and gluon jets emerge as the two maximally separable categories within two jet samples in data. Benefiting from recent work on data-driven classifiers and topic modeling for jets, we show that the practical tools needed to implement our definition already exist for experimental applications. As an informative example, we demonstrate the power of our operational definition using Z+jet and dijet samples, illustrating that pure quark and gluon distributions and fractions can be successfully extracted in a fully well-defined manner.</p>
     
 
     
@@ -253,7 +253,7 @@
       <div class="col-sm-10">
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Publication</div>
-          <div class="col-xs-12 col-sm-9"><em>Journal of High Energy Physics</em>, <strong>04</strong> 2018:013</div>
+          <div class="col-xs-12 col-sm-9">Preprint</div>
         </div>
       </div>
       <div class="col-sm-1"></div>
@@ -267,7 +267,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
           <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-            April, 2018
+            September, 2018
           </div>
         </div>
       </div>
@@ -298,23 +298,15 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="/files/pdfs/energyflowpolynomials.pdf" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="/files/pdfs/defineqg.pdf" target="_blank" rel="noopener">
   PDF
 </a>
 
-<a class="btn btn-primary btn-outline" href="https://doi.org/10.1007/JHEP04%282018%29013" target="_blank" rel="noopener">
-  Journal
-</a>
-
-<a class="btn btn-primary btn-outline" href="publication/energyflowpolynomials/" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="publication/defineqg/" target="_blank" rel="noopener">
   Details
 </a>
 
-<a class="btn btn-primary btn-outline" href="https://pkomiske.github.io/EnergyFlow/" target="_blank" rel="noopener">
-  Software
-</a>
-
-<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/1712.07124" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/1809.01140" target="_blank" rel="noopener">
   Preprint
 </a>
 
@@ -323,7 +315,7 @@
 
 
 <button type="button" class="btn btn-primary btn-outline js-cite-modal"
-        data-filename="/files/citations/energyflowpolynomials.bib">
+        data-filename="/files/citations/defineqg.bib">
   Cite
 </button>
 
