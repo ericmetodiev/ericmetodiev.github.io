@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2018</copyright>
-    <lastBuildDate>Tue, 04 Sep 2018 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 14 Oct 2018 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Energy Flow Networks: Deep Sets for Particle Jets</title>
+      <link>/publication/energyflownetworks/</link>
+      <pubDate>Sun, 14 Oct 2018 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/energyflownetworks/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>An operational definition of quark and gluon jets</title>
