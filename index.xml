@@ -11,6 +11,33 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>2019</title>
+      <link>/publication/2019/</link>
+      <pubDate>Tue, 15 Jan 2019 01:00:00 -0500</pubDate>
+      
+      <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Energy Flow Networks: Deep Sets for Particle Jets</title>
+      <link>/publication/energyflownetworks/</link>
+      <pubDate>Tue, 15 Jan 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/energyflownetworks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2018</title>
+      <link>/publication/2018/</link>
+      <pubDate>Mon, 31 Dec 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/2018/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Disentangling Jet Categories at Colliders</title>
       <link>/talk/mlforjets2018/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
@@ -18,24 +45,6 @@
       <guid>/talk/mlforjets2018/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>2018</title>
-      <link>/publication/2018/</link>
-      <pubDate>Mon, 15 Oct 2018 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/2018/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Energy Flow Networks: Deep Sets for Particle Jets</title>
-      <link>/publication/energyflownetworks/</link>
-      <pubDate>Sun, 14 Oct 2018 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/energyflownetworks/</guid>
-      <description></description>
     </item>
     
     <item>
@@ -135,16 +144,6 @@
       <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
       
       <guid>/talk/mlforjetsa2017/</guid>
-      <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Learning to Remove Pileup at the LHC with Jet Images</title>
-      <link>/talk/acat2017/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/acat2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
