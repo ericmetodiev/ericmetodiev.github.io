@@ -13,9 +13,18 @@
     <item>
       <title>2019</title>
       <link>/publication/2019/</link>
-      <pubDate>Tue, 15 Jan 2019 01:00:00 -0500</pubDate>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 -0500</pubDate>
       
       <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Metric Space of Collider Events</title>
+      <link>/publication/earthmoverdistance/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/earthmoverdistance/</guid>
       <description></description>
     </item>
     
@@ -136,16 +145,6 @@
       
       <guid>/publication/deeplearningqg/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>A complete, linear basis for (machine) learning jet substructure</title>
-      <link>/talk/mlforjetsa2017/</link>
-      <pubDate>Sun, 01 Jan 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/mlforjetsa2017/</guid>
-      <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
     </item>
     
   </channel>
