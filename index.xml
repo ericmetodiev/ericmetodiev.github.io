@@ -13,9 +13,18 @@
     <item>
       <title>2019</title>
       <link>/publication/2019/</link>
-      <pubDate>Thu, 07 Feb 2019 00:00:00 -0500</pubDate>
+      <pubDate>Wed, 27 Feb 2019 00:00:00 -0500</pubDate>
       
       <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Machine Learning Landscape of Top Taggers</title>
+      <link>/publication/toptagging/</link>
+      <pubDate>Wed, 06 Feb 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/toptagging/</guid>
       <description></description>
     </item>
     
@@ -136,15 +145,6 @@
       <guid>/talk/mitjournal2017/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>Deep learning in color: Towards automated quark/gluon jet discrimination</title>
-      <link>/publication/deeplearningqg/</link>
-      <pubDate>Wed, 25 Jan 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/publication/deeplearningqg/</guid>
-      <description></description>
     </item>
     
   </channel>
