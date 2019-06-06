@@ -17,10 +17,10 @@
       
     
   
-  <meta name="description" content="When are two collider events similar? Despite the simplicity and generality of this question, there is no established notion of the distance between two events. To address this question, we develop a metric for the space of collider events based on the earth mover&#39;s distance: the &#34;work&#34; required to rearrange the radiation pattern of one event into another. We expose interesting connections between this metric and the structure of infrared- and collinear-safe observables, providing a novel technique to quantify event modifications due to hadronization, pileup, and detector effects. We showcase how this metrization unlocks powerful new tools for analyzing and visualizing collider data without relying upon a choice of observables. More broadly, this framework paves the way for data-driven collider phenomenology without specialized observables or machine learning models.">
+  <meta name="description" content="Understanding jets initiated by quarks and gluons is of fundamental importance in collider physics. Efficient and robust techniques for quark versus gluon jet discrimination have consequences for new physics searches, precision strong coupling constant studies, parton distribution function extractions, and many other applications. Numerous machine learning analyses have attacked the problem, demonstrating that good performance can be obtained but generally not providing an understanding for what properties of the jets are responsible for that separation power. In this paper, we provide an extensive and detailed analysis of quark versus gluon discrimination from first-principles theoretical calculations. Working in the strongly-ordered soft and collinear limits, we calculate probability distributions for fixed N-body kinematics within jets with up through three resolved emissions. This enables explicit calculation of quantities central to machine learning such as the likelihood ratio, the area under the receiver operating characteristic curve, and reducibility factors within a well-defined approximation scheme. Further, we relate the existence of a consistent power counting procedure for discrimination to ideas for operational flavor definitions, and we use this relationship to construct a power counting for quark versus gluon discrimination as an expansion in the exponential of the fundamental and adjoint Casimirs. Our calculations provide insight into the discrimination performance of particle multiplicity and show how observables sensitive to all emissions in a jet are optimal. We compare our predictions to the performance of individual observables and neural networks with parton shower event generators, validating that our predictions describe the features identified by machine learning.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/publication/earthmoverdistance/">
+  <link rel="alternate" hreflang="en-us" href="/publication/qgpowercounting/">
 
   
 
@@ -83,25 +83,25 @@
   <link rel="icon" type="image/png" href="/img/icon.png">
   <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
 
-  <link rel="canonical" href="/publication/earthmoverdistance/">
+  <link rel="canonical" href="/publication/qgpowercounting/">
 
   <meta property="twitter:card" content="summary_large_image">
   
   <meta property="og:site_name" content="Eric M. Metodiev">
-  <meta property="og:url" content="/publication/earthmoverdistance/">
-  <meta property="og:title" content="The Metric Space of Collider Events | Eric M. Metodiev">
-  <meta property="og:description" content="When are two collider events similar? Despite the simplicity and generality of this question, there is no established notion of the distance between two events. To address this question, we develop a metric for the space of collider events based on the earth mover&#39;s distance: the &#34;work&#34; required to rearrange the radiation pattern of one event into another. We expose interesting connections between this metric and the structure of infrared- and collinear-safe observables, providing a novel technique to quantify event modifications due to hadronization, pileup, and detector effects. We showcase how this metrization unlocks powerful new tools for analyzing and visualizing collider data without relying upon a choice of observables. More broadly, this framework paves the way for data-driven collider phenomenology without specialized observables or machine learning models.">
+  <meta property="og:url" content="/publication/qgpowercounting/">
+  <meta property="og:title" content="A Theory of Quark vs. Gluon Discrimination | Eric M. Metodiev">
+  <meta property="og:description" content="Understanding jets initiated by quarks and gluons is of fundamental importance in collider physics. Efficient and robust techniques for quark versus gluon jet discrimination have consequences for new physics searches, precision strong coupling constant studies, parton distribution function extractions, and many other applications. Numerous machine learning analyses have attacked the problem, demonstrating that good performance can be obtained but generally not providing an understanding for what properties of the jets are responsible for that separation power. In this paper, we provide an extensive and detailed analysis of quark versus gluon discrimination from first-principles theoretical calculations. Working in the strongly-ordered soft and collinear limits, we calculate probability distributions for fixed N-body kinematics within jets with up through three resolved emissions. This enables explicit calculation of quantities central to machine learning such as the likelihood ratio, the area under the receiver operating characteristic curve, and reducibility factors within a well-defined approximation scheme. Further, we relate the existence of a consistent power counting procedure for discrimination to ideas for operational flavor definitions, and we use this relationship to construct a power counting for quark versus gluon discrimination as an expansion in the exponential of the fundamental and adjoint Casimirs. Our calculations provide insight into the discrimination performance of particle multiplicity and show how observables sensitive to all emissions in a jet are optimal. We compare our predictions to the performance of individual observables and neural networks with parton shower event generators, validating that our predictions describe the features identified by machine learning.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-02-06T00:00:00-05:00">
+  <meta property="article:published_time" content="2019-06-05T00:00:00-04:00">
   
-  <meta property="article:modified_time" content="2019-02-06T00:00:00-05:00">
-  
-
-  
+  <meta property="article:modified_time" content="2019-06-05T00:00:00-04:00">
   
 
-  <title>The Metric Space of Collider Events | Eric M. Metodiev</title>
+  
+  
+
+  <title>A Theory of Quark vs. Gluon Discrimination | Eric M. Metodiev</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -221,10 +221,10 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">The Metric Space of Collider Events</h1>
+    <h1 itemprop="name">A Theory of Quark vs. Gluon Discrimination</h1>
     <span class="pub-authors" itemprop="author">
       
-      Patrick T. Komiske, Eric M. Metodiev, Jesse Thaler
+      Andrew J. Larkoski, Eric M. Metodiev
       
     </span>
     <span class="pull-right">
@@ -233,12 +233,12 @@
     </span>
 
     
-    <img src="/img/graphics/earthmoverdistance_graphic.png" class="pub-banner" itemprop="image">
+    <img src="/img/graphics/qgpowercounting_graphic.png" class="pub-banner" itemprop="image">
     
 
     
     <h3>Abstract</h3>
-    <p class="pub-abstract" itemprop="text">When are two collider events similar? Despite the simplicity and generality of this question, there is no established notion of the distance between two events. To address this question, we develop a metric for the space of collider events based on the earth mover&rsquo;s distance: the &ldquo;work&rdquo; required to rearrange the radiation pattern of one event into another. We expose interesting connections between this metric and the structure of infrared- and collinear-safe observables, providing a novel technique to quantify event modifications due to hadronization, pileup, and detector effects. We showcase how this metrization unlocks powerful new tools for analyzing and visualizing collider data without relying upon a choice of observables. More broadly, this framework paves the way for data-driven collider phenomenology without specialized observables or machine learning models.</p>
+    <p class="pub-abstract" itemprop="text">Understanding jets initiated by quarks and gluons is of fundamental importance in collider physics. Efficient and robust techniques for quark versus gluon jet discrimination have consequences for new physics searches, precision strong coupling constant studies, parton distribution function extractions, and many other applications. Numerous machine learning analyses have attacked the problem, demonstrating that good performance can be obtained but generally not providing an understanding for what properties of the jets are responsible for that separation power. In this paper, we provide an extensive and detailed analysis of quark versus gluon discrimination from first-principles theoretical calculations. Working in the strongly-ordered soft and collinear limits, we calculate probability distributions for fixed N-body kinematics within jets with up through three resolved emissions. This enables explicit calculation of quantities central to machine learning such as the likelihood ratio, the area under the receiver operating characteristic curve, and reducibility factors within a well-defined approximation scheme. Further, we relate the existence of a consistent power counting procedure for discrimination to ideas for operational flavor definitions, and we use this relationship to construct a power counting for quark versus gluon discrimination as an expansion in the exponential of the fundamental and adjoint Casimirs. Our calculations provide insight into the discrimination performance of particle multiplicity and show how observables sensitive to all emissions in a jet are optimal. We compare our predictions to the performance of individual observables and neural networks with parton shower event generators, validating that our predictions describe the features identified by machine learning.</p>
     
 
     
@@ -281,7 +281,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3 pub-row-heading">Date</div>
           <div class="col-xs-12 col-sm-9" itemprop="datePublished">
-            February, 2019
+            June, 2019
           </div>
         </div>
       </div>
@@ -312,15 +312,15 @@
 
 
 
-<a class="btn btn-primary btn-outline" href="/files/pdfs/earthmoverdistance.pdf" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="/files/pdfs/qgpowercounting.pdf" target="_blank" rel="noopener">
   PDF
 </a>
 
-<a class="btn btn-primary btn-outline" href="/publication/earthmoverdistance/" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="/publication/qgpowercounting/" target="_blank" rel="noopener">
   Details
 </a>
 
-<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/1902.02346" target="_blank" rel="noopener">
+<a class="btn btn-primary btn-outline" href="https://arxiv.org/abs/1906.01639" target="_blank" rel="noopener">
   Preprint
 </a>
 
@@ -329,7 +329,7 @@
 
 
 <button type="button" class="btn btn-primary btn-outline js-cite-modal"
-        data-filename="/files/citations/earthmoverdistance.bib">
+        data-filename="/files/citations/qgpowercounting.bib">
   Cite
 </button>
 

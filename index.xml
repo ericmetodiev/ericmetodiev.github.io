@@ -13,9 +13,18 @@
     <item>
       <title>2019</title>
       <link>/publication/2019/</link>
-      <pubDate>Wed, 27 Feb 2019 00:00:00 -0500</pubDate>
+      <pubDate>Wed, 05 Jun 2019 01:00:00 -0400</pubDate>
       
       <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>A Theory of Quark vs. Gluon Discrimination</title>
+      <link>/publication/qgpowercounting/</link>
+      <pubDate>Wed, 05 Jun 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/qgpowercounting/</guid>
       <description></description>
     </item>
     
@@ -135,16 +144,6 @@
       
       <guid>/publication/classificationwithoutlabels/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>(Machine) Learning to Remove Pileup at the LHC</title>
-      <link>/talk/mitjournal2017/</link>
-      <pubDate>Fri, 08 Sep 2017 00:00:00 -0400</pubDate>
-      
-      <guid>/talk/mitjournal2017/</guid>
-      <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
     </item>
     
   </channel>
