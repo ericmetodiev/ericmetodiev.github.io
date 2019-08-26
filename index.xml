@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eric M. Metodiev on Eric M. Metodiev</title>
@@ -7,15 +6,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 01:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>2019</title>
       <link>/publication/2019/</link>
-      <pubDate>Tue, 30 Jul 2019 01:00:00 -0400</pubDate>
+      <pubDate>Mon, 26 Aug 2019 01:00:00 -0400</pubDate>
       
       <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploring the Space of Jets with CMS Open Data</title>
+      <link>/publication/cmsopendataemd/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/cmsopendataemd/</guid>
       <description></description>
     </item>
     
@@ -134,15 +142,6 @@
       <pubDate>Tue, 12 Dec 2017 00:00:00 -0500</pubDate>
       
       <guid>/publication/pumml/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Classification without labels: Learning from mixed samples in high energy physics</title>
-      <link>/publication/classificationwithoutlabels/</link>
-      <pubDate>Wed, 25 Oct 2017 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/classificationwithoutlabels/</guid>
       <description></description>
     </item>
     

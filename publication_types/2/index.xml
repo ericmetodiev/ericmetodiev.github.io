@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Tue, 30 Jul 2019 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring the Space of Jets with CMS Open Data</title>
+      <link>/publication/cmsopendataemd/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/cmsopendataemd/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>The Machine Learning Landscape of Top Taggers</title>
