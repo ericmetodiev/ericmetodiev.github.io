@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eric M. Metodiev on Eric M. Metodiev</title>
@@ -6,8 +7,114 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Thu, 03 Oct 2019 01:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0400</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Training Collider Classifiers on Real Data</title>
+      <link>/post/trainondata/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trainondata/</guid>
+      <description>
+
+&lt;h2 id=&#34;classification-at-colliders&#34;&gt;Classification at Colliders&lt;/h2&gt;
+
+&lt;p&gt;There&amp;rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics.
+Methods from &lt;a href=&#34;https://arxiv.org/abs/1511.05190&#34; target=&#34;_blank&#34;&gt;image recognition&lt;/a&gt;, &lt;a href=&#34;https://arxiv.org/abs/1702.00748&#34; target=&#34;_blank&#34;&gt;natural language processing&lt;/a&gt;, and &lt;a href=&#34;https://arxiv.org/abs/1810.05165&#34; target=&#34;_blank&#34;&gt;point cloud identification&lt;/a&gt; have outperformed expert-designed algorithms for a variety of collider tasks.&lt;/p&gt;
+
+&lt;p&gt;But there&amp;rsquo;s a problem: collisions at the LHC don&amp;rsquo;t come with labels.
+Unlike photos or handwritten digits, you can&amp;rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.
+All you have is the complicated mozaic of particles that ultimately hits your detector.
+So then how do you get labeled training data to feed your classifiers?&lt;/p&gt;
+
+&lt;p&gt;In particle physics, this problem is dodged by relying heavily on simulated events for labels.
+You can peer into the inner workings of the simulation and see what particles were produced in the collision.
+While these simulations are excellent, they can badly mismodel the subtle correlations among the thousands of particles in a collision event.&lt;/p&gt;
+
+&lt;p&gt;Reliance on simulation is troubling for machine learning in particle physics, as models can learn these mismodeled details.
+There&amp;rsquo;s no substitute for real data.&lt;/p&gt;
+
+&lt;p&gt;Here, I&amp;rsquo;ll discuss how to overcome the need for simulation and train classifiers directly on real collider data.
+It&amp;rsquo;s a simple and fun story.&lt;/p&gt;
+
+&lt;h2 id=&#34;training-on-data&#34;&gt;Training on Data?&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s get right to the key ideas. As I mentioned, they&amp;rsquo;re all pretty simple.&lt;/p&gt;
+
+&lt;h4 id=&#34;1-the-likelihood-ratio-as-the-optimal-classifier&#34;&gt;1. The Likelihood Ratio as the Optimal Classifier&lt;/h4&gt;
+
+&lt;p&gt;Say you want to classify category $A$ from category $B$ using features ${\bf x}$.
+We know, thanks to &lt;a href=&#34;https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma&#34; target=&#34;_blank&#34;&gt;Neyman and Pearson&lt;/a&gt;, that the optimal classifier to do the job is the likelihood ratio:
+$$ L_{A/B}({\bf x}) = p_A({\bf x})/p_B({\bf x}),$$
+where $p_A({\bf x})$ and $p_B({\bf x})$ are the probability densities of ${\bf x}$ in the two categories.&lt;/p&gt;
+
+&lt;p&gt;The $A$/$B$ likelihood ratio (or anything monotonically related to it!) is what we&amp;rsquo;re after if we want a great classifier.
+If we had labels for our data, we could train any classifier in the usual way to get an approximation of the likelihood ratio.
+But in particle physics, we just don&amp;rsquo;t have those labels.&lt;/p&gt;
+
+&lt;h4 id=&#34;2-collider-data-as-statistical-mixtures&#34;&gt;2. Collider Data as Statistical Mixtures&lt;/h4&gt;
+
+&lt;p&gt;Instead, what we can often measure at colliders are statistical mixtures of the two classes with some fraction $f$.
+We can write this mathematically as:
+$$ p_{M}({\bf x}) = f p_A({\bf x}) + (1-f) p_B({\bf x}). $$&lt;/p&gt;
+
+&lt;p&gt;By slicing and dicing our data in different ways, we can get different mixtures with different fractions.
+For example, consider classifying collision debris (jets) from high-energy quarks versus gluons.
+As quarks are electrically charged, they are more likely to be produced together with an energetic photon.
+Looking for this photon gives you a mixture with a higher fraction of quarks than gluons.&lt;/p&gt;
+
+&lt;p&gt;Now, let&amp;rsquo;s see what the optimal classifier is to classify one mixture from another.
+Again, it&amp;rsquo;s simply the likelihood ratio of the two mixtures:&lt;/p&gt;
+
+&lt;p&gt;$$ L_{M_1/M_2}({\bf x})  = \frac{f_1 p_A({\bf x}) + (1-f_1) p_B({\bf x})}{f_2 p_A({\bf x}) + (1-f_2) p_B({\bf x})} = \frac{f_1 L_{A/B}({\bf x})  + (1-f_1)}{f_2 L_{A/B}({\bf x}) + (1-f_2)}.$$&lt;/p&gt;
+
+&lt;p&gt;This is monotonically related to $L_{A/B}({\bf x})$, and so it defines the same classifier!&lt;/p&gt;
+
+&lt;p&gt;In other words: train a classifier to tell apart the two mixtures and you&amp;rsquo;ll get a great classifier for the underlying categories.
+By using the mixtures, you don&amp;rsquo;t need the underlying labels!
+You don&amp;rsquo;t even need to know the mixture fractions.&lt;/p&gt;
+
+&lt;h4 id=&#34;3-classifying-mixtures-as-classifying-categories&#34;&gt;3. Classifying Mixtures as Classifying Categories&lt;/h4&gt;
+
+&lt;p&gt;Let&amp;rsquo;s summarize what we learned as a theorem. I&amp;rsquo;ll explain the funny name later.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Koala Theorem&lt;/strong&gt;: The optimal classifier between two different mixtures of categories $A$ and $B$ is also the optimal classifier between $A$ and $B$.&lt;/p&gt;
+
+&lt;p&gt;This result is pretty intuitive.
+Say you have two baskets of exotic fruits: one is more rich in &lt;code&gt;foos&lt;/code&gt; and the other in &lt;code&gt;bars&lt;/code&gt;.
+Your best guess of which basket a fruit came from is simply your best guess of whether it is a &lt;code&gt;foo&lt;/code&gt; or a &lt;code&gt;bar&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;This simple idea has also &lt;a href=&#34;https://arxiv.org/abs/1303.1208&#34; target=&#34;_blank&#34;&gt;appeared previously&lt;/a&gt; for learning from noisy labels.&lt;/p&gt;
+
+&lt;h2 id=&#34;classification-without-labels&#34;&gt;Classification Without Labels&lt;/h2&gt;
+
+&lt;p&gt;Our &lt;a href=&#34;https://arxiv.org/abs/1708.02949&#34; target=&#34;_blank&#34;&gt;classification without labels&lt;/a&gt; or CWoLa (&amp;ldquo;koala&amp;rdquo;, as in the furry marsupial) technique for training on real data is based directly on this idea.
+Simply slice and dice your data into several mixtures, and train a classifier to tell them apart.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a cartoon of a koala learning to tell apart signal $S$ from background $B$.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./cartooncwola.png&#34; width=&#34;65%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;The koala, even with its &lt;a href=&#34;https://en.wikipedia.org/wiki/Koala#Description&#34; target=&#34;_blank&#34;&gt;notoriously tiny brain&lt;/a&gt;, learns how to classify the two categories simply by being trained to classify the mixtures from each other.&lt;/p&gt;
+
+&lt;p&gt;There are assumptions for CWoLa to work, and it&amp;rsquo;s worth spelling them out:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Different Fractions&lt;/strong&gt;: The two mixtures have different fractions, $f_1\neq f_2$.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Sample Independence&lt;/strong&gt;: Category $A$ is identical in the mixtures. Same for $B$.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The first point says that you can&amp;rsquo;t just randomly split your data in half.
+The second point says that the slicing and dicing shouldn&amp;rsquo;t affect the distribution of features ${\bf x}$ in categories $A$ and $B$.
+In our &lt;a href=&#34;https://arxiv.org/abs/1708.02949&#34; target=&#34;_blank&#34;&gt;two&lt;/a&gt; &lt;a href=&#34;https://arxiv.org/abs/1801.10158&#34; target=&#34;_blank&#34;&gt;papers&lt;/a&gt;, we make concrete proposals for ways to meet these requirements in cases of interest, but that&amp;rsquo;s all there is to this idea for training classifiers on collider data.&lt;/p&gt;
+
+&lt;p&gt;Our method was recently applied to real data &lt;a href=&#34;https://arxiv.org/abs/1909.05306&#34; target=&#34;_blank&#34;&gt;by the CMS collaboration&lt;/a&gt; for their measurement of the $t\bar tb\bar b$ cross section.
+By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting way, they trained a boosted decision tree (BDT) to classify $t\bar t b \bar b$ events (with two top and two bottom quarks) from the background.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./cmscwola.png&#34; width=&#34;65%&#34;&gt;To my knowledge, this is the first classifier trained directly on real LHC data!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>2019</title>
@@ -133,15 +240,6 @@
       <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
       
       <guid>/talk/2017/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Pileup Mitigation with Machine Learning (PUMML)</title>
-      <link>/publication/pumml/</link>
-      <pubDate>Tue, 12 Dec 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/publication/pumml/</guid>
       <description></description>
     </item>
     

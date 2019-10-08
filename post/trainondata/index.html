@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="author" content="Eric M. Metodiev">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="Classification at Colliders There&rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics. Methods from image recognition, natural language processing, and point cloud identification have outperformed expert-designed algorithms for a variety of collider tasks.
+But there&rsquo;s a problem: collisions at the LHC don&rsquo;t come with labels. Unlike photos or handwritten digits, you can&rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/trainondata/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#1c3f95">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-123585874-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Eric M. Metodiev">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Eric M. Metodiev">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" href="favicon.ico">
+
+  <link rel="canonical" href="/post/trainondata/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@https://twitter.com/EricMetodiev">
+  <meta property="twitter:creator" content="@https://twitter.com/EricMetodiev">
+  
+  <meta property="og:site_name" content="Eric M. Metodiev">
+  <meta property="og:url" content="/post/trainondata/">
+  <meta property="og:title" content="Training Collider Classifiers on Real Data | Eric M. Metodiev">
+  <meta property="og:description" content="Classification at Colliders There&rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics. Methods from image recognition, natural language processing, and point cloud identification have outperformed expert-designed algorithms for a variety of collider tasks.
+But there&rsquo;s a problem: collisions at the LHC don&rsquo;t come with labels. Unlike photos or handwritten digits, you can&rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-10-07T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-10-07T00:00:00&#43;00:00">
+  
+
+  
+  
+
+  <title>Training Collider Classifiers on Real Data | Eric M. Metodiev</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Eric M. Metodiev</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/index.html#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/publication/index.html">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/talk/index.html">
+            
+            <span>Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/index.html">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/index.html#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <h1 itemprop="name">Training Collider Classifiers on Real Data</h1>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-10-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 7, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Eric M. Metodiev">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    5 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="classification-at-colliders">Classification at Colliders</h2>
+
+<p>There&rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics.
+Methods from <a href="https://arxiv.org/abs/1511.05190" target="_blank">image recognition</a>, <a href="https://arxiv.org/abs/1702.00748" target="_blank">natural language processing</a>, and <a href="https://arxiv.org/abs/1810.05165" target="_blank">point cloud identification</a> have outperformed expert-designed algorithms for a variety of collider tasks.</p>
+
+<p>But there&rsquo;s a problem: collisions at the LHC don&rsquo;t come with labels.
+Unlike photos or handwritten digits, you can&rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.
+All you have is the complicated mozaic of particles that ultimately hits your detector.
+So then how do you get labeled training data to feed your classifiers?</p>
+
+<p>In particle physics, this problem is dodged by relying heavily on simulated events for labels.
+You can peer into the inner workings of the simulation and see what particles were produced in the collision.
+While these simulations are excellent, they can badly mismodel the subtle correlations among the thousands of particles in a collision event.</p>
+
+<p>Reliance on simulation is troubling for machine learning in particle physics, as models can learn these mismodeled details.
+There&rsquo;s no substitute for real data.</p>
+
+<p>Here, I&rsquo;ll discuss how to overcome the need for simulation and train classifiers directly on real collider data.
+It&rsquo;s a simple and fun story.</p>
+
+<h2 id="training-on-data">Training on Data?</h2>
+
+<p>Let&rsquo;s get right to the key ideas. As I mentioned, they&rsquo;re all pretty simple.</p>
+
+<h4 id="1-the-likelihood-ratio-as-the-optimal-classifier">1. The Likelihood Ratio as the Optimal Classifier</h4>
+
+<p>Say you want to classify category $A$ from category $B$ using features ${\bf x}$.
+We know, thanks to <a href="https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma" target="_blank">Neyman and Pearson</a>, that the optimal classifier to do the job is the likelihood ratio:
+$$ L_{A/B}({\bf x}) = p_A({\bf x})/p_B({\bf x}),$$
+where $p_A({\bf x})$ and $p_B({\bf x})$ are the probability densities of ${\bf x}$ in the two categories.</p>
+
+<p>The $A$/$B$ likelihood ratio (or anything monotonically related to it!) is what we&rsquo;re after if we want a great classifier.
+If we had labels for our data, we could train any classifier in the usual way to get an approximation of the likelihood ratio.
+But in particle physics, we just don&rsquo;t have those labels.</p>
+
+<h4 id="2-collider-data-as-statistical-mixtures">2. Collider Data as Statistical Mixtures</h4>
+
+<p>Instead, what we can often measure at colliders are statistical mixtures of the two classes with some fraction $f$.
+We can write this mathematically as:
+$$ p_{M}({\bf x}) = f p_A({\bf x}) + (1-f) p_B({\bf x}). $$</p>
+
+<p>By slicing and dicing our data in different ways, we can get different mixtures with different fractions.
+For example, consider classifying collision debris (jets) from high-energy quarks versus gluons.
+As quarks are electrically charged, they are more likely to be produced together with an energetic photon.
+Looking for this photon gives you a mixture with a higher fraction of quarks than gluons.</p>
+
+<p>Now, let&rsquo;s see what the optimal classifier is to classify one mixture from another.
+Again, it&rsquo;s simply the likelihood ratio of the two mixtures:</p>
+
+<p>$$ L_{M_1/M_2}({\bf x})  = \frac{f_1 p_A({\bf x}) + (1-f_1) p_B({\bf x})}{f_2 p_A({\bf x}) + (1-f_2) p_B({\bf x})} = \frac{f_1 L_{A/B}({\bf x})  + (1-f_1)}{f_2 L_{A/B}({\bf x}) + (1-f_2)}.$$</p>
+
+<p>This is monotonically related to $L_{A/B}({\bf x})$, and so it defines the same classifier!</p>
+
+<p>In other words: train a classifier to tell apart the two mixtures and you&rsquo;ll get a great classifier for the underlying categories.
+By using the mixtures, you don&rsquo;t need the underlying labels!
+You don&rsquo;t even need to know the mixture fractions.</p>
+
+<h4 id="3-classifying-mixtures-as-classifying-categories">3. Classifying Mixtures as Classifying Categories</h4>
+
+<p>Let&rsquo;s summarize what we learned as a theorem. I&rsquo;ll explain the funny name later.</p>
+
+<p><strong>Koala Theorem</strong>: The optimal classifier between two different mixtures of categories $A$ and $B$ is also the optimal classifier between $A$ and $B$.</p>
+
+<p>This result is pretty intuitive.
+Say you have two baskets of exotic fruits: one is more rich in <code>foos</code> and the other in <code>bars</code>.
+Your best guess of which basket a fruit came from is simply your best guess of whether it is a <code>foo</code> or a <code>bar</code>.</p>
+
+<p>This simple idea has also <a href="https://arxiv.org/abs/1303.1208" target="_blank">appeared previously</a> for learning from noisy labels.</p>
+
+<h2 id="classification-without-labels">Classification Without Labels</h2>
+
+<p>Our <a href="https://arxiv.org/abs/1708.02949" target="_blank">classification without labels</a> or CWoLa (&ldquo;koala&rdquo;, as in the furry marsupial) technique for training on real data is based directly on this idea.
+Simply slice and dice your data into several mixtures, and train a classifier to tell them apart.</p>
+
+<p>Here&rsquo;s a cartoon of a koala learning to tell apart signal $S$ from background $B$.</p>
+
+<p><img src="./cartooncwola.png" width="65%"></p>
+
+<p>The koala, even with its <a href="https://en.wikipedia.org/wiki/Koala#Description" target="_blank">notoriously tiny brain</a>, learns how to classify the two categories simply by being trained to classify the mixtures from each other.</p>
+
+<p>There are assumptions for CWoLa to work, and it&rsquo;s worth spelling them out:</p>
+
+<ol>
+<li><strong>Different Fractions</strong>: The two mixtures have different fractions, $f_1\neq f_2$.</li>
+<li><strong>Sample Independence</strong>: Category $A$ is identical in the mixtures. Same for $B$.</li>
+</ol>
+
+<p>The first point says that you can&rsquo;t just randomly split your data in half.
+The second point says that the slicing and dicing shouldn&rsquo;t affect the distribution of features ${\bf x}$ in categories $A$ and $B$.
+In our <a href="https://arxiv.org/abs/1708.02949" target="_blank">two</a> <a href="https://arxiv.org/abs/1801.10158" target="_blank">papers</a>, we make concrete proposals for ways to meet these requirements in cases of interest, but that&rsquo;s all there is to this idea for training classifiers on collider data.</p>
+
+<p>Our method was recently applied to real data <a href="https://arxiv.org/abs/1909.05306" target="_blank">by the CMS collaboration</a> for their measurement of the $t\bar tb\bar b$ cross section.
+By applying CWoLa (&ldquo;training a koala&rdquo;?) in an interesting way, they trained a boosted decision tree (BDT) to classify $t\bar t b \bar b$ events (with two top and two bottom quarks) from the background.</p>
+
+<p><img src="./cmscwola.png" width="65%">To my knowledge, this is the first classifier trained directly on real LHC data!</p>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      
+	  
+
+	  
+	  &copy; 2019 	  Eric M. Metodiev
+
+
+	  
+	  
+	  
+
+      
+
+	  
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

@@ -12,5 +12,15 @@
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Training Collider Classifiers on Real Data</title>
+      <link>/post/trainondata/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trainondata/</guid>
+      <description>Classification at Colliders There&amp;rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics. Methods from image recognition, natural language processing, and point cloud identification have outperformed expert-designed algorithms for a variety of collider tasks.
+But there&amp;rsquo;s a problem: collisions at the LHC don&amp;rsquo;t come with labels. Unlike photos or handwritten digits, you can&amp;rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.</description>
+    </item>
+    
   </channel>
 </rss>
