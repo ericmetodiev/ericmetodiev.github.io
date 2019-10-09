@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+    
+    
+    <url>
+    
+      <loc>/post/cmsopendata/</loc>
+      <lastmod>2019-10-09T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/</loc>
+      <lastmod>2019-10-09T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
   
     
     
@@ -14,8 +32,38 @@
     
     <url>
     
+      <loc>/publication_types/0/</loc>
+      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/publication/2019/</loc>
       <lastmod>2019-10-03T01:00:00-04:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/</loc>
+      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/2/</loc>
+      <lastmod>2019-10-03T00:00:00-04:00</lastmod>
+      <priority>0</priority>
     </url>
     
   
@@ -329,26 +377,6 @@
     
     <url>
     
-      <loc>/publication_types/0/</loc>
-      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/publication_types/2/</loc>
-      <lastmod>2019-10-03T00:00:00-04:00</lastmod>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
       <loc>/talk/2018/</loc>
     </url>
     
@@ -374,16 +402,6 @@
     <url>
     
       <loc>/categories/</loc>
-      <priority>0</priority>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/</loc>
-      <lastmod>2016-04-20T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -433,16 +451,6 @@
     <url>
     
       <loc>/talk/harvard2018/</loc>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/publication_types/</loc>
-      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
-      <priority>0</priority>
     </url>
     
   

@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eric M. Metodiev on Eric M. Metodiev</title>
@@ -7,8 +6,166 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Wed, 20 Apr 2016 00:00:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 09 Oct 2019 00:00:00 +0000</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Adventures with Public Collider Data</title>
+      <link>/post/cmsopendata/</link>
+      <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/cmsopendata/</guid>
+      <description>
+
+&lt;h2 id=&#34;cms-open-data&#34;&gt;CMS Open Data&lt;/h2&gt;
+
+&lt;p&gt;In a historic move, the CMS collaboration publicly released terabytes of their LHC data, available on the &lt;a href=&#34;http://opendata.cern.ch/&#34; target=&#34;_blank&#34;&gt;CERN Open Data Portal&lt;/a&gt;.
+Now anyone can play around with real collider data just a few years after it is collected.
+This is an amazing step by CMS, guaranteeing that data produced now will be valuable into the far future.&lt;/p&gt;
+
+&lt;p&gt;Here, I&amp;rsquo;d like to explore that data.
+Using open data in &lt;a href=&#34;https://arxiv.org/abs/1908.08542&#34; target=&#34;_blank&#34;&gt;our recent work&lt;/a&gt; has been exciting, educational, and frustrating.
+I hope to share some of that with you here.
+This isn&amp;rsquo;t a tutorial, but rather a brief tour.
+To peer into the open data, you&amp;rsquo;d typically need to install the &lt;a href=&#34;http://opendata.cern.ch/docs/cms-virtual-machine-2010&#34; target=&#34;_blank&#34;&gt;CERN virtual machine&lt;/a&gt; or the recently-released &lt;a href=&#34;http://opendata.cern.ch/docs/cms-guide-docker&#34; target=&#34;_blank&#34;&gt;docker image&lt;/a&gt; and use the CMS software framework.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a short cut and dive directly into the data.
+We&amp;rsquo;ll do this using the &lt;a href=&#34;https://uproot.readthedocs.io/en/latest/&#34; target=&#34;_blank&#34;&gt;uproot&lt;/a&gt; python package, which can be easily installed with &lt;code&gt;pip install uproot&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;looking-at-collisions&#34;&gt;Looking at Collisions&lt;/h2&gt;
+
+&lt;h4 id=&#34;downloading-the-data&#34;&gt;Downloading the Data&lt;/h4&gt;
+
+&lt;p&gt;The Open Data Portal has links to many different datasets.
+Here we&amp;rsquo;ll focus on the &lt;a href=&#34;http://opendata.cern.ch/record/21&#34; target=&#34;_blank&#34;&gt;Jet Primary Dataset&lt;/a&gt;.
+This dataset contains events with energetic jets of particles.
+We&amp;rsquo;ll see some jets in a moment.&lt;/p&gt;
+
+&lt;p&gt;The data are stored in &amp;ldquo;Analysis Object Data&amp;rdquo; (AOD) files.
+The files have thousands of events each and contain a huge amount of information about every event.
+There are almost 5TB of data, so let&amp;rsquo;s keep it simple and focus on one file.&lt;/p&gt;
+
+&lt;p&gt;Download an AOD file by clicking the link below. &lt;strong&gt;Warning&lt;/strong&gt;: 1GB file size.&lt;br /&gt;
+&lt;a href=&#34;http://opendata.cern.ch/record/21/files/assets/cms/Run2011A/Jet/AOD/12Oct2013-v1/20001/04913DA0-8B3F-E311-924F-0025901AD38A.root&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;04913DA0-8B3F-E311-924F-0025901AD38A.root&lt;/code&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;reading-the-files&#34;&gt;Reading the Files&lt;/h4&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see the particles in an event.
+We&amp;rsquo;ll use the CMS-constructed &amp;ldquo;particle flow candidates&amp;rdquo; (PFCs) as proxies for the particles that hit the detector.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s write a few lines of python to read in the particles from this file.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import uproot
+
+# load in the specified file with uproot
+file = uproot.open(&#39;04913DA0-8B3F-E311-924F-0025901AD38A.root&#39;)
+events = file[b&#39;Events;1&#39;]
+
+# read particle transverse momenta (pts), pseudorapidity (eta), and azimuth (phi)
+PFCkey = b&#39;recoPFCandidates_particleFlow__RECO.obj&#39;
+pts  = events[PFCkey + b&#39;.pt_&#39;].array()
+etas = events[PFCkey + b&#39;.eta_&#39;].array()
+phis = events[PFCkey + b&#39;.phi_&#39;].array()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The particles are characterized by their energy and direction.
+Their energy is quantified by the transverse momentum $p_T$ and their direction is specified by the pseudorapidity-azimuth $(\eta,\phi)$ coordinates of the detector cylinder.&lt;/p&gt;
+
+&lt;h4 id=&#34;displaying-the-events&#34;&gt;Displaying the Events&lt;/h4&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s pick an event (#6457) and actually view it with the following code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as plt
+
+# choose an event
+ind = 6457
+
+# plot the collision event of interest
+plt.scatter(etas[ind], phis[ind], s=pts[ind], lw=0)
+
+# plot settings
+plt.xlim(-5, 5)
+plt.ylim(-np.pi, np.pi)
+plt.xlabel(&#39;Pseudorapidity $\eta$&#39;)
+plt.ylabel(&#39;Azimuthal Angle $\phi$&#39;)
+plt.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This code produces an &amp;ldquo;unrolled&amp;rdquo; image of the detector cylinder ($\phi$ is periodic).
+The event is shown below, depicting higher energy particles as larger dots.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;./ODexampleevent.png&#34; width=&#34;85%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;And that&amp;rsquo;s it! You&amp;rsquo;re looking at the particles produced by a real LHC collision and recorded by the CMS detector.&lt;/p&gt;
+
+&lt;h4 id=&#34;what-do-you-see&#34;&gt;What do you see?&lt;/h4&gt;
+
+&lt;p&gt;There are two energetic sprays of particles (called jets) that are back-to-back with $\Delta\phi \approx \pi$.
+These jets arise from high-energy quarks and gluons, which fragment and hadronize into jets before hitting the detector.&lt;/p&gt;
+
+&lt;p&gt;The AOD file also has information about these jets (and much more!).&lt;/p&gt;
+
+&lt;p&gt;Looking closer, we see that the upper jet consists of two energetic prongs.
+This is an example of jet substructure.
+A lot of recent work has gone into theoretically understanding and experimentally measuring the substructure of jets at the LHC.
+More on that later.&lt;/p&gt;
+
+&lt;p&gt;Feel free to play around and look at different events!
+See if you can plot different particle types (photons, electrons, hadrons, etc.) as different colors.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Beware&lt;/strong&gt;: Staring at too many event displays may drive you mad. Use caution.&lt;/p&gt;
+
+&lt;h2 id=&#34;now-what&#34;&gt;Now what?&lt;/h2&gt;
+
+&lt;h4 id=&#34;digging-into-details&#34;&gt;Digging into Details&lt;/h4&gt;
+
+&lt;p&gt;See any evidence for new physics in the event above? Me neither.&lt;/p&gt;
+
+&lt;p&gt;More serious analyses with open data require more work.
+First, what event are we even looking at?
+If you trust my painstaking byte-by-byte extraction, this code finds the event, run, and luminosity section numbers of an event in this dataset.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import struct
+
+# get the auxiliary event information
+aux = events[b&#39;EventAuxiliary&#39;].array(uproot.asdebug)
+
+# get the event, run, and lumiblock numbers from the file bytes
+event_num = struct.unpack(&amp;quot;&amp;gt;I&amp;quot;, bytes(aux[ind][43:47]))[0]
+run_num   = struct.unpack(&amp;quot;&amp;gt;I&amp;quot;, bytes(aux[ind][35:39]))[0]
+lumi_num  = struct.unpack(&amp;quot;&amp;gt;I&amp;quot;, bytes(aux[ind][39:43]))[0]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We are looking at Event 40076805 in Run 166429 and Luminosity Section 54.
+This fully specifies the event: it was recorded on Friday, June 3, 2011 at 5:04pm.
+The official &lt;a href=&#34;http://opendata.cern.ch/record/1001&#34; target=&#34;_blank&#34;&gt;CMS list&lt;/a&gt; tells us that this event is considered &amp;ldquo;valid&amp;rdquo; by CMS, with the detector operating as expected. You can find the the &lt;a href=&#34;http://opendata.cern.ch/record/1051&#34; target=&#34;_blank&#34;&gt;time, luminosity&lt;/a&gt;, and other information about the event&amp;rsquo;s luminosity block once you have these numbers.&lt;/p&gt;
+
+&lt;h4 id=&#34;the-bad-news&#34;&gt;The Bad News&lt;/h4&gt;
+
+&lt;p&gt;You can&amp;rsquo;t always avoid using the CMS software framework, at least for now.
+There are event and particle properties that require going the traditional route to extract.
+Here are some examples.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Triggers&lt;/strong&gt;: What trigger(s) fired for this event to be stored?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Vertexing&lt;/strong&gt;: Which charged particles are from pileup interactions?&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Jet Corrections&lt;/strong&gt;: How much of a jet&amp;rsquo;s energy did the detector collect?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While not every usage of the open data will require all of this information, probing the substructure of jets relies heavily on it.&lt;/p&gt;
+
+&lt;h4 id=&#34;the-good-news&#34;&gt;The Good News&lt;/h4&gt;
+
+&lt;p&gt;We&amp;rsquo;ve done all this hard work for you &lt;a href=&#34;https://arxiv.org/abs/1908.08542&#34; target=&#34;_blank&#34;&gt;in our paper&lt;/a&gt;!
+We store all the particles within high energy jets from this dataset, making use of this additional information to mitigate pileup and detector effects.&lt;/p&gt;
+
+&lt;p&gt;We &lt;a href=&#34;http://dx.doi.org/10.5281/zenodo.3340205&#34; target=&#34;_blank&#34;&gt;publicly released&lt;/a&gt; the processed data, plus we did cool physics with it!
+I hope that this dataset is broadly useful for anyone who wants to study jet substructure in the CMS Open Data.&lt;/p&gt;
+
+&lt;p&gt;To learn more, check out &lt;a href=&#34;https://t.co/9E36IRzUNp?amp=1&#34; target=&#34;_blank&#34;&gt;this demo&lt;/a&gt; that runs right in your browser!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Training Collider Classifiers on Real Data</title>
@@ -25,7 +182,7 @@ Methods from &lt;a href=&#34;https://arxiv.org/abs/1511.05190&#34; target=&#34;_
 
 &lt;p&gt;But there&amp;rsquo;s a problem: collisions at the LHC don&amp;rsquo;t come with labels.
 Unlike photos or handwritten digits, you can&amp;rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.
-All you have is the complicated mozaic of particles that ultimately hits your detector.
+All you have is the complicated mozaic of particles that ultimately hits the detector.
 So then how do you get labeled training data to feed your classifiers?&lt;/p&gt;
 
 &lt;p&gt;In particle physics, this problem is dodged by relying heavily on simulated events for labels.
@@ -35,7 +192,7 @@ While these simulations are excellent, they can badly mismodel the subtle correl
 &lt;p&gt;Reliance on simulation is troubling for machine learning in particle physics, as models can learn these mismodeled details.
 There&amp;rsquo;s no substitute for real data.&lt;/p&gt;
 
-&lt;p&gt;Here, I&amp;rsquo;ll discuss how to overcome the need for simulation and train classifiers directly on real collider data.
+&lt;p&gt;Here, I&amp;rsquo;ll discuss our work on overcoming the need for simulation and training classifiers directly on real collider data.
 It&amp;rsquo;s a simple and fun story.&lt;/p&gt;
 
 &lt;h2 id=&#34;training-on-data&#34;&gt;Training on Data?&lt;/h2&gt;
@@ -231,15 +388,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
       <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
       
       <guid>/publication/2017/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2017</title>
-      <link>/talk/2017/</link>
-      <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/2017/</guid>
       <description></description>
     </item>
     

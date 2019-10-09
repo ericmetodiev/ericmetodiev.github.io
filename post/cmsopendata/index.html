@@ -17,10 +17,10 @@
       
     
   
-  <meta name="description" content="Overcoming a reliance on simulation to train classifiers directly on real collider data.">
+  <meta name="description" content="Diving into collider events recorded by the CMS detector at the LHC in a matter of minutes.">
 
   
-  <link rel="alternate" hreflang="en-us" href="/post/trainondata/">
+  <link rel="alternate" hreflang="en-us" href="/post/cmsopendata/">
 
   
 
@@ -83,7 +83,7 @@
   <link rel="icon" type="image/png" href="favicon.ico">
   <link rel="apple-touch-icon" type="image/png" href="favicon.ico">
 
-  <link rel="canonical" href="/post/trainondata/">
+  <link rel="canonical" href="/post/cmsopendata/">
 
   <meta property="twitter:card" content="summary_large_image">
   
@@ -91,20 +91,20 @@
   <meta property="twitter:creator" content="@https://twitter.com/EricMetodiev">
   
   <meta property="og:site_name" content="Eric M. Metodiev">
-  <meta property="og:url" content="/post/trainondata/">
-  <meta property="og:title" content="Training Collider Classifiers on Real Data | Eric M. Metodiev">
-  <meta property="og:description" content="Overcoming a reliance on simulation to train classifiers directly on real collider data.">
+  <meta property="og:url" content="/post/cmsopendata/">
+  <meta property="og:title" content="Adventures with Public Collider Data | Eric M. Metodiev">
+  <meta property="og:description" content="Diving into collider events recorded by the CMS detector at the LHC in a matter of minutes.">
   <meta property="og:locale" content="en-us">
   
-  <meta property="article:published_time" content="2019-10-07T00:00:00&#43;00:00">
+  <meta property="article:published_time" content="2019-10-09T00:00:00&#43;00:00">
   
-  <meta property="article:modified_time" content="2019-10-07T00:00:00&#43;00:00">
-  
-
-  
+  <meta property="article:modified_time" content="2019-10-09T00:00:00&#43;00:00">
   
 
-  <title>Training Collider Classifiers on Real Data | Eric M. Metodiev</title>
+  
+  
+
+  <title>Adventures with Public Collider Data | Eric M. Metodiev</title>
 
 </head>
 <body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
@@ -244,7 +244,7 @@
 
 
   <div class="article-container">
-    <h1 itemprop="name">Training Collider Classifiers on Real Data</h1>
+    <h1 itemprop="name">Adventures with Public Collider Data</h1>
 
     <h5> Eric M. Metodiev </h5>
 
@@ -254,8 +254,8 @@
 
   <span class="article-date">
     
-    <time datetime="2019-10-07 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
-      Oct 7, 2019
+    <time datetime="2019-10-09 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 9, 2019
     </time>
   </span>
   <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
@@ -288,101 +288,153 @@
     <div class="article-style" itemprop="articleBody">
       
 
-<h2 id="classification-at-colliders">Classification at Colliders</h2>
+<h2 id="cms-open-data">CMS Open Data</h2>
 
-<p>There&rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics.
-Methods from <a href="https://arxiv.org/abs/1511.05190" target="_blank">image recognition</a>, <a href="https://arxiv.org/abs/1702.00748" target="_blank">natural language processing</a>, and <a href="https://arxiv.org/abs/1810.05165" target="_blank">point cloud identification</a> have outperformed expert-designed algorithms for a variety of collider tasks.</p>
+<p>In a historic move, the CMS collaboration publicly released terabytes of their LHC data, available on the <a href="http://opendata.cern.ch/" target="_blank">CERN Open Data Portal</a>.
+Now anyone can play around with real collider data just a few years after it is collected.
+This is an amazing step by CMS, guaranteeing that data produced now will be valuable into the far future.</p>
 
-<p>But there&rsquo;s a problem: collisions at the LHC don&rsquo;t come with labels.
-Unlike photos or handwritten digits, you can&rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.
-All you have is the complicated mozaic of particles that ultimately hits the detector.
-So then how do you get labeled training data to feed your classifiers?</p>
+<p>Here, I&rsquo;d like to explore that data.
+Using open data in <a href="https://arxiv.org/abs/1908.08542" target="_blank">our recent work</a> has been exciting, educational, and frustrating.
+I hope to share some of that with you here.
+This isn&rsquo;t a tutorial, but rather a brief tour.
+To peer into the open data, you&rsquo;d typically need to install the <a href="http://opendata.cern.ch/docs/cms-virtual-machine-2010" target="_blank">CERN virtual machine</a> or the recently-released <a href="http://opendata.cern.ch/docs/cms-guide-docker" target="_blank">docker image</a> and use the CMS software framework.</p>
 
-<p>In particle physics, this problem is dodged by relying heavily on simulated events for labels.
-You can peer into the inner workings of the simulation and see what particles were produced in the collision.
-While these simulations are excellent, they can badly mismodel the subtle correlations among the thousands of particles in a collision event.</p>
+<p>Let&rsquo;s take a short cut and dive directly into the data.
+We&rsquo;ll do this using the <a href="https://uproot.readthedocs.io/en/latest/" target="_blank">uproot</a> python package, which can be easily installed with <code>pip install uproot</code>.</p>
 
-<p>Reliance on simulation is troubling for machine learning in particle physics, as models can learn these mismodeled details.
-There&rsquo;s no substitute for real data.</p>
+<h2 id="looking-at-collisions">Looking at Collisions</h2>
 
-<p>Here, I&rsquo;ll discuss our work on overcoming the need for simulation and training classifiers directly on real collider data.
-It&rsquo;s a simple and fun story.</p>
+<h4 id="downloading-the-data">Downloading the Data</h4>
 
-<h2 id="training-on-data">Training on Data?</h2>
+<p>The Open Data Portal has links to many different datasets.
+Here we&rsquo;ll focus on the <a href="http://opendata.cern.ch/record/21" target="_blank">Jet Primary Dataset</a>.
+This dataset contains events with energetic jets of particles.
+We&rsquo;ll see some jets in a moment.</p>
 
-<p>Let&rsquo;s get right to the key ideas. As I mentioned, they&rsquo;re all pretty simple.</p>
+<p>The data are stored in &ldquo;Analysis Object Data&rdquo; (AOD) files.
+The files have thousands of events each and contain a huge amount of information about every event.
+There are almost 5TB of data, so let&rsquo;s keep it simple and focus on one file.</p>
 
-<h4 id="1-the-likelihood-ratio-as-the-optimal-classifier">1. The Likelihood Ratio as the Optimal Classifier</h4>
+<p>Download an AOD file by clicking the link below. <strong>Warning</strong>: 1GB file size.<br />
+<a href="http://opendata.cern.ch/record/21/files/assets/cms/Run2011A/Jet/AOD/12Oct2013-v1/20001/04913DA0-8B3F-E311-924F-0025901AD38A.root" target="_blank"><code>04913DA0-8B3F-E311-924F-0025901AD38A.root</code></a></p>
 
-<p>Say you want to classify category $A$ from category $B$ using features ${\bf x}$.
-We know, thanks to <a href="https://en.wikipedia.org/wiki/Neyman%E2%80%93Pearson_lemma" target="_blank">Neyman and Pearson</a>, that the optimal classifier to do the job is the likelihood ratio:
-$$ L_{A/B}({\bf x}) = p_A({\bf x})/p_B({\bf x}),$$
-where $p_A({\bf x})$ and $p_B({\bf x})$ are the probability densities of ${\bf x}$ in the two categories.</p>
+<h4 id="reading-the-files">Reading the Files</h4>
 
-<p>The $A$/$B$ likelihood ratio (or anything monotonically related to it!) is what we&rsquo;re after if we want a great classifier.
-If we had labels for our data, we could train any classifier in the usual way to get an approximation of the likelihood ratio.
-But in particle physics, we just don&rsquo;t have those labels.</p>
+<p>Let&rsquo;s see the particles in an event.
+We&rsquo;ll use the CMS-constructed &ldquo;particle flow candidates&rdquo; (PFCs) as proxies for the particles that hit the detector.</p>
 
-<h4 id="2-collider-data-as-statistical-mixtures">2. Collider Data as Statistical Mixtures</h4>
+<p>Let&rsquo;s write a few lines of python to read in the particles from this file.</p>
 
-<p>Instead, what we can often measure at colliders are statistical mixtures of the two classes with some fraction $f$.
-We can write this mathematically as:
-$$ p_{M}({\bf x}) = f p_A({\bf x}) + (1-f) p_B({\bf x}). $$</p>
+<pre><code class="language-python">import uproot
 
-<p>By slicing and dicing our data in different ways, we can get different mixtures with different fractions.
-For example, consider classifying collision debris (jets) from high-energy quarks versus gluons.
-As quarks are electrically charged, they are more likely to be produced together with an energetic photon.
-Looking for this photon gives you a mixture with a higher fraction of quarks than gluons.</p>
+# load in the specified file with uproot
+file = uproot.open('04913DA0-8B3F-E311-924F-0025901AD38A.root')
+events = file[b'Events;1']
 
-<p>Now, let&rsquo;s see what the optimal classifier is to classify one mixture from another.
-Again, it&rsquo;s simply the likelihood ratio of the two mixtures:</p>
+# read particle transverse momenta (pts), pseudorapidity (eta), and azimuth (phi)
+PFCkey = b'recoPFCandidates_particleFlow__RECO.obj'
+pts  = events[PFCkey + b'.pt_'].array()
+etas = events[PFCkey + b'.eta_'].array()
+phis = events[PFCkey + b'.phi_'].array()
+</code></pre>
 
-<p>$$ L_{M_1/M_2}({\bf x})  = \frac{f_1 p_A({\bf x}) + (1-f_1) p_B({\bf x})}{f_2 p_A({\bf x}) + (1-f_2) p_B({\bf x})} = \frac{f_1 L_{A/B}({\bf x})  + (1-f_1)}{f_2 L_{A/B}({\bf x}) + (1-f_2)}.$$</p>
+<p>The particles are characterized by their energy and direction.
+Their energy is quantified by the transverse momentum $p_T$ and their direction is specified by the pseudorapidity-azimuth $(\eta,\phi)$ coordinates of the detector cylinder.</p>
 
-<p>This is monotonically related to $L_{A/B}({\bf x})$, and so it defines the same classifier!</p>
+<h4 id="displaying-the-events">Displaying the Events</h4>
 
-<p>In other words: train a classifier to tell apart the two mixtures and you&rsquo;ll get a great classifier for the underlying categories.
-By using the mixtures, you don&rsquo;t need the underlying labels!
-You don&rsquo;t even need to know the mixture fractions.</p>
+<p>Now let&rsquo;s pick an event (#6457) and actually view it with the following code.</p>
 
-<h4 id="3-classifying-mixtures-as-classifying-categories">3. Classifying Mixtures as Classifying Categories</h4>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
 
-<p>Let&rsquo;s summarize what we learned as a theorem. I&rsquo;ll explain the funny name later.</p>
+# choose an event
+ind = 6457
 
-<p><strong>Koala Theorem</strong>: The optimal classifier between two different mixtures of categories $A$ and $B$ is also the optimal classifier between $A$ and $B$.</p>
+# plot the collision event of interest
+plt.scatter(etas[ind], phis[ind], s=pts[ind], lw=0)
 
-<p>This result is pretty intuitive.
-Say you have two baskets of exotic fruits: one is more rich in <code>foos</code> and the other in <code>bars</code>.
-Your best guess of which basket a fruit came from is simply your best guess of whether it is a <code>foo</code> or a <code>bar</code>.</p>
+# plot settings
+plt.xlim(-5, 5)
+plt.ylim(-np.pi, np.pi)
+plt.xlabel('Pseudorapidity $\eta$')
+plt.ylabel('Azimuthal Angle $\phi$')
+plt.show()
+</code></pre>
 
-<p>This simple idea has also <a href="https://arxiv.org/abs/1303.1208" target="_blank">appeared previously</a> for learning from noisy labels.</p>
+<p>This code produces an &ldquo;unrolled&rdquo; image of the detector cylinder ($\phi$ is periodic).
+The event is shown below, depicting higher energy particles as larger dots.</p>
 
-<h2 id="classification-without-labels">Classification Without Labels</h2>
+<p><img src="./ODexampleevent.png" width="85%"></p>
 
-<p>Our <a href="https://arxiv.org/abs/1708.02949" target="_blank">classification without labels</a> or CWoLa (&ldquo;koala&rdquo;, as in the furry marsupial) technique for training on real data is based directly on this idea.
-Simply slice and dice your data into several mixtures, and train a classifier to tell them apart.</p>
+<p>And that&rsquo;s it! You&rsquo;re looking at the particles produced by a real LHC collision and recorded by the CMS detector.</p>
 
-<p>Here&rsquo;s a cartoon of a koala learning to tell apart signal $S$ from background $B$.</p>
+<h4 id="what-do-you-see">What do you see?</h4>
 
-<p><img src="./cartooncwola.png" width="65%"></p>
+<p>There are two energetic sprays of particles (called jets) that are back-to-back with $\Delta\phi \approx \pi$.
+These jets arise from high-energy quarks and gluons, which fragment and hadronize into jets before hitting the detector.</p>
 
-<p>The koala, even with its <a href="https://en.wikipedia.org/wiki/Koala#Description" target="_blank">notoriously tiny brain</a>, learns how to classify the two categories simply by being trained to classify the mixtures from each other.</p>
+<p>The AOD file also has information about these jets (and much more!).</p>
 
-<p>There are assumptions for CWoLa to work, and it&rsquo;s worth spelling them out:</p>
+<p>Looking closer, we see that the upper jet consists of two energetic prongs.
+This is an example of jet substructure.
+A lot of recent work has gone into theoretically understanding and experimentally measuring the substructure of jets at the LHC.
+More on that later.</p>
 
-<ol>
-<li><strong>Different Fractions</strong>: The two mixtures have different fractions, $f_1\neq f_2$.</li>
-<li><strong>Sample Independence</strong>: Category $A$ is identical in the mixtures. Same for $B$.</li>
-</ol>
+<p>Feel free to play around and look at different events!
+See if you can plot different particle types (photons, electrons, hadrons, etc.) as different colors.</p>
 
-<p>The first point says that you can&rsquo;t just randomly split your data in half.
-The second point says that the slicing and dicing shouldn&rsquo;t affect the distribution of features ${\bf x}$ in categories $A$ and $B$.
-In our <a href="https://arxiv.org/abs/1708.02949" target="_blank">two</a> <a href="https://arxiv.org/abs/1801.10158" target="_blank">papers</a>, we make concrete proposals for ways to meet these requirements in cases of interest, but that&rsquo;s all there is to this idea for training classifiers on collider data.</p>
+<p><strong>Beware</strong>: Staring at too many event displays may drive you mad. Use caution.</p>
 
-<p>Our method was recently applied to real data <a href="https://arxiv.org/abs/1909.05306" target="_blank">by the CMS collaboration</a> for their measurement of the $t\bar tb\bar b$ cross section.
-By applying CWoLa (&ldquo;training a koala&rdquo;?) in an interesting way, they trained a boosted decision tree (BDT) to classify $t\bar t b \bar b$ events (with two top and two bottom quarks) from the background.</p>
+<h2 id="now-what">Now what?</h2>
 
-<p><img src="./cmscwola.png" width="65%">To my knowledge, this is the first classifier trained directly on real LHC data!</p>
+<h4 id="digging-into-details">Digging into Details</h4>
+
+<p>See any evidence for new physics in the event above? Me neither.</p>
+
+<p>More serious analyses with open data require more work.
+First, what event are we even looking at?
+If you trust my painstaking byte-by-byte extraction, this code finds the event, run, and luminosity section numbers of an event in this dataset.</p>
+
+<pre><code class="language-python">import struct
+
+# get the auxiliary event information
+aux = events[b'EventAuxiliary'].array(uproot.asdebug)
+
+# get the event, run, and lumiblock numbers from the file bytes
+event_num = struct.unpack(&quot;&gt;I&quot;, bytes(aux[ind][43:47]))[0]
+run_num   = struct.unpack(&quot;&gt;I&quot;, bytes(aux[ind][35:39]))[0]
+lumi_num  = struct.unpack(&quot;&gt;I&quot;, bytes(aux[ind][39:43]))[0]
+</code></pre>
+
+<p>We are looking at Event 40076805 in Run 166429 and Luminosity Section 54.
+This fully specifies the event: it was recorded on Friday, June 3, 2011 at 5:04pm.
+The official <a href="http://opendata.cern.ch/record/1001" target="_blank">CMS list</a> tells us that this event is considered &ldquo;valid&rdquo; by CMS, with the detector operating as expected. You can find the the <a href="http://opendata.cern.ch/record/1051" target="_blank">time, luminosity</a>, and other information about the event&rsquo;s luminosity block once you have these numbers.</p>
+
+<h4 id="the-bad-news">The Bad News</h4>
+
+<p>You can&rsquo;t always avoid using the CMS software framework, at least for now.
+There are event and particle properties that require going the traditional route to extract.
+Here are some examples.</p>
+
+<ul>
+<li><strong>Triggers</strong>: What trigger(s) fired for this event to be stored?</li>
+<li><strong>Vertexing</strong>: Which charged particles are from pileup interactions?</li>
+<li><strong>Jet Corrections</strong>: How much of a jet&rsquo;s energy did the detector collect?</li>
+</ul>
+
+<p>While not every usage of the open data will require all of this information, probing the substructure of jets relies heavily on it.</p>
+
+<h4 id="the-good-news">The Good News</h4>
+
+<p>We&rsquo;ve done all this hard work for you <a href="https://arxiv.org/abs/1908.08542" target="_blank">in our paper</a>!
+We store all the particles within high energy jets from this dataset, making use of this additional information to mitigate pileup and detector effects.</p>
+
+<p>We <a href="http://dx.doi.org/10.5281/zenodo.3340205" target="_blank">publicly released</a> the processed data, plus we did cool physics with it!
+I hope that this dataset is broadly useful for anyone who wants to study jet substructure in the CMS Open Data.</p>
+
+<p>To learn more, check out <a href="https://t.co/9E36IRzUNp?amp=1" target="_blank">this demo</a> that runs right in your browser!</p>
 
     </div>
 
