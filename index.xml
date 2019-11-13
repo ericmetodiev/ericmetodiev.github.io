@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>2019</title>
+      <link>/publication/2019/</link>
+      <pubDate>Tue, 12 Nov 2019 01:00:00 -0500</pubDate>
+      
+      <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cutting Multiparticle Correlators Down to Size</title>
+      <link>/publication/multiparticlecorrelators/</link>
+      <pubDate>Tue, 12 Nov 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/multiparticlecorrelators/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Adventures with Public Collider Data</title>
       <link>/post/cmsopendata/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
@@ -275,15 +293,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
     </item>
     
     <item>
-      <title>2019</title>
-      <link>/publication/2019/</link>
-      <pubDate>Thu, 03 Oct 2019 01:00:00 -0400</pubDate>
-      
-      <guid>/publication/2019/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>A Theory of Quark vs. Gluon Discrimination</title>
       <link>/publication/qgpowercounting/</link>
       <pubDate>Thu, 03 Oct 2019 00:00:00 -0400</pubDate>
@@ -380,15 +389,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
       <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
       
       <guid>/publication/energyflowpolynomials/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2017</title>
-      <link>/publication/2017/</link>
-      <pubDate>Sun, 31 Dec 2017 00:00:00 -0500</pubDate>
-      
-      <guid>/publication/2017/</guid>
       <description></description>
     </item>
     

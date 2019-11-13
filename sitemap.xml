@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>/publication/2019/</loc>
+      <lastmod>2019-11-12T01:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/multiparticlecorrelators/</loc>
+      <lastmod>2019-11-12T00:00:00-05:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/post/cmsopendata/</loc>
       <lastmod>2019-10-09T00:00:00+00:00</lastmod>
     </url>
@@ -16,15 +34,6 @@
     
       <loc>/post/trainondata/</loc>
       <lastmod>2019-10-07T00:00:00+00:00</lastmod>
-    </url>
-    
-  
-    
-    
-    <url>
-    
-      <loc>/publication/2019/</loc>
-      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
     </url>
     
   
@@ -339,7 +348,7 @@
     <url>
     
       <loc>/publication_types/0/</loc>
-      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
+      <lastmod>2019-11-12T01:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -349,7 +358,7 @@
     <url>
     
       <loc>/publication_types/2/</loc>
-      <lastmod>2019-10-03T00:00:00-04:00</lastmod>
+      <lastmod>2019-11-12T00:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -450,7 +459,7 @@
     <url>
     
       <loc>/publication_types/</loc>
-      <lastmod>2019-10-03T01:00:00-04:00</lastmod>
+      <lastmod>2019-11-12T01:00:00-05:00</lastmod>
       <priority>0</priority>
     </url>
     
