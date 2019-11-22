@@ -13,9 +13,18 @@
     <item>
       <title>2019</title>
       <link>/publication/2019/</link>
-      <pubDate>Tue, 12 Nov 2019 01:00:00 -0500</pubDate>
+      <pubDate>Thu, 21 Nov 2019 01:00:00 -0500</pubDate>
       
       <guid>/publication/2019/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OmniFold: A Method to Simultaneously Unfold All Observables</title>
+      <link>/publication/omnifold/</link>
+      <pubDate>Thu, 21 Nov 2019 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/omnifold/</guid>
       <description></description>
     </item>
     
@@ -380,15 +389,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
       <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
       
       <guid>/publication/jettopics/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Energy flow polynomials: A complete linear basis for jet substructure</title>
-      <link>/publication/energyflowpolynomials/</link>
-      <pubDate>Wed, 04 Apr 2018 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/energyflowpolynomials/</guid>
       <description></description>
     </item>
     
