@@ -356,6 +356,16 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
     </item>
     
     <item>
+      <title>Data ex Machina: Machine Learning with Jets in CMS Open Data</title>
+      <link>/talk/mlforjets2020/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/talk/mlforjets2020/</guid>
+      <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Disentangling Jet Categories at Colliders</title>
       <link>/talk/mlforjets2018/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
@@ -380,15 +390,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
       <pubDate>Mon, 16 Jul 2018 00:00:00 -0400</pubDate>
       
       <guid>/publication/weaksupervision/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jet Topics: Disentangling Quarks and Gluons at Colliders</title>
-      <link>/publication/jettopics/</link>
-      <pubDate>Tue, 12 Jun 2018 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/jettopics/</guid>
       <description></description>
     </item>
     
