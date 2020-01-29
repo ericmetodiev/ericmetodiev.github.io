@@ -22,6 +22,15 @@
     </item>
     
     <item>
+      <title>Data ex Machina: Machine Learning with Public Collider Data</title>
+      <link>/talk/amld2020/</link>
+      <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
+      
+      <guid>/talk/amld2020/</guid>
+      <description>#Embed your slides or video here using shortcodes. Further details can easily be added using Markdown and $\rm \LaTeX$ math code.</description>
+    </item>
+    
+    <item>
       <title>Disentangling Jet Categories at Colliders</title>
       <link>/talk/mlforjets2018/</link>
       <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
