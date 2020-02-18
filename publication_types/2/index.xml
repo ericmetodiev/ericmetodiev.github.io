@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Thu, 21 Nov 2019 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 -0500</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Exploring the Space of Jets with CMS Open Data</title>
+      <link>/publication/cmsopendataemd/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 -0500</pubDate>
+      
+      <guid>/publication/cmsopendataemd/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>OmniFold: A Method to Simultaneously Unfold All Observables</title>
@@ -36,15 +45,6 @@
       <pubDate>Thu, 03 Oct 2019 00:00:00 -0400</pubDate>
       
       <guid>/publication/qgpowercounting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Exploring the Space of Jets with CMS Open Data</title>
-      <link>/publication/cmsopendataemd/</link>
-      <pubDate>Mon, 26 Aug 2019 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/cmsopendataemd/</guid>
       <description></description>
     </item>
     
