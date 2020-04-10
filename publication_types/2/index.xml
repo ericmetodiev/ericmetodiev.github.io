@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019</copyright>
-    <lastBuildDate>Mon, 24 Feb 2020 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 -0400</lastBuildDate>
     
 	<atom:link href="/publication_types/2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Hidden Geometry of Particle Collisions</title>
+      <link>/publication/eventgeometry/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/eventgeometry/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Cutting Multiparticle Correlators Down to Size</title>

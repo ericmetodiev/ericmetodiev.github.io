@@ -18,7 +18,8 @@
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/cmsopendata/</guid>
-      <description>Diving into collider events recorded by the CMS detector at the LHC in a matter of minutes.</description>
+      <description>CMS Open Data In a historic move, the CMS collaboration publicly released terabytes of their LHC data, available on the CERN Open Data Portal. Now anyone can play around with real collider data just a few years after it is collected. This is an amazing step by CMS, guaranteeing that data produced now will be valuable into the far future.
+Here, I&amp;rsquo;d like to explore that data. Using open data in our recent work has been exciting, educational, and frustrating.</description>
     </item>
     
     <item>
@@ -27,7 +28,8 @@
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>/post/trainondata/</guid>
-      <description>Overcoming a reliance on simulation to train classifiers directly on real collider data.</description>
+      <description>Classification at Colliders There&amp;rsquo;s been a lot of recent interest in applying classification techniques from machine learning to particle physics. Methods from image recognition, natural language processing, and point cloud identification have outperformed expert-designed algorithms for a variety of collider tasks.
+But there&amp;rsquo;s a problem: collisions at the LHC don&amp;rsquo;t come with labels. Unlike photos or handwritten digits, you can&amp;rsquo;t recruit an army of volunteers to see whether a Higgs boson was produced (before decaying) in a collision.</description>
     </item>
     
   </channel>
