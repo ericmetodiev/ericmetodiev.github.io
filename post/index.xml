@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>The Fractal Lives of Jets</title>
+      <link>/post/jetformation/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/jetformation/</guid>
+      <description>How a jet gets its shape Jets are sprays of particles emerging from high-energy particle collisions. They are ubiquitous at the LHC. But why do they exist and how do they form?
+Protons are full of quarks and gluons. Naturally, their collisions give rise to many energetic quarks and gluons. We never see these in the detector, though. Instead, they undergo a multi-stage process to form jets of particles that we do observe.</description>
+    </item>
+    
+    <item>
       <title>Adventures with Public Collider Data</title>
       <link>/post/cmsopendata/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>

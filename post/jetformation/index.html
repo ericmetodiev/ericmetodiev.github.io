@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.40.3" />
+  <meta name="author" content="Eric M. Metodiev">
+
+  
+  
+  
+  
+    
+      
+    
+  
+  <meta name="description" content="How a jet gets its shape Jets are sprays of particles emerging from high-energy particle collisions. They are ubiquitous at the LHC. But why do they exist and how do they form?
+Protons are full of quarks and gluons. Naturally, their collisions give rise to many energetic quarks and gluons. We never see these in the detector, though. Instead, they undergo a multi-stage process to form jets of particles that we do observe.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/jetformation/">
+
+  
+
+
+  
+
+  
+  
+  <meta name="theme-color" content="#1c3f95">
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-123585874-1', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Eric M. Metodiev">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Eric M. Metodiev">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" href="favicon.ico">
+
+  <link rel="canonical" href="/post/jetformation/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@https://twitter.com/EricMetodiev">
+  <meta property="twitter:creator" content="@https://twitter.com/EricMetodiev">
+  <meta property="twitter:image" content="https://www.ericmetodiev.com/img/features/mlcollisionbanner.jpg">
+  
+  <meta property="og:site_name" content="Eric M. Metodiev">
+  <meta property="og:url" content="/post/jetformation/">
+  <meta property="og:title" content="The Fractal Lives of Jets | Eric M. Metodiev">
+  <meta property="og:description" content="How a jet gets its shape Jets are sprays of particles emerging from high-energy particle collisions. They are ubiquitous at the LHC. But why do they exist and how do they form?
+Protons are full of quarks and gluons. Naturally, their collisions give rise to many energetic quarks and gluons. We never see these in the detector, though. Instead, they undergo a multi-stage process to form jets of particles that we do observe."><meta property="og:image" content="img/features/lundbanner.jpg">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2019-10-10T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2019-10-10T00:00:00&#43;00:00">
+  
+
+  
+  
+
+  <title>The Fractal Lives of Jets | Eric M. Metodiev</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Eric M. Metodiev</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/index.html#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/publication/index.html">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/talk/index.html">
+            
+            <span>Talks</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post/index.html">
+            
+            <span>Posts</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+        
+        
+        
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/index.html#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  
+  
+    <img src="/img/features/lundbanner.jpg" class="article-banner" itemprop="image">
+  
+
+  <span class="article-header-caption"><a href="https://arxiv.org/pdf/2004.03540.pdf" target="_blank">Image: ATLAS, CERN</a></span>
+</div>
+
+
+
+  <div class="article-container">
+    <h1 itemprop="name">The Fractal Lives of Jets</h1>
+
+    <h5> Eric M. Metodiev </h5>
+
+    
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2019-10-10 00:00:00 &#43;0000 UTC" itemprop="datePublished dateModified">
+      Oct 10, 2019
+    </time>
+  </span>
+  <span itemscope itemprop="author publisher" itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Eric M. Metodiev">
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    4 min read
+  </span>
+  
+
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+
+  
+
+</div>
+
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+<h2 id="how-a-jet-gets-its-shape">How a jet gets its shape</h2>
+
+<p>Jets are sprays of particles emerging from high-energy particle collisions.
+They are ubiquitous at the LHC.
+But why do they exist and how do they form?</p>
+
+<p>Protons are full of quarks and gluons.
+Naturally, their collisions give rise to many energetic quarks and gluons.
+We never see these in the detector, though.
+Instead, they undergo a multi-stage process to form jets of particles that we do observe.</p>
+
+<p>Patterns in these sprays of particles allow us to better hunt for new physics or explore the strong nuclear force.
+These patterns are known as jet &ldquo;substructure&rdquo;.
+Here, I want to highlight the fractal nature of the patterns in jet formation.</p>
+
+<p>See <a href="https://www.ericmetodiev.com/post/cmsopendata/" target="_blank">my recent post</a> to see real jets in data using CMS Open Data.</p>
+
+<p>Here&rsquo;s a cartoon of the jet formation process that I made to give you the idea.
+<img src="./jetcartoon.jpg" width="95%"></p>
+
+<p>Let&rsquo;s unpack this.</p>
+
+<p><strong>Collision:</strong> Protons collide. Often, an energetic quark (plus other stuff) comes out.<br />
+<strong>Fragmentation:</strong> The quark &ldquo;fragments&rdquo; into a fractal of quarks and gluons. <br />
+<strong>Hadronization:</strong> The quarks and gluons &ldquo;hadronize&rdquo; into the observed particles.</p>
+
+<p>This jet has &ldquo;two-pronged&rdquo; substructure: its energy is mostly found in two clusters.
+This traces back to an energetic gluon emission during fragmentation.</p>
+
+<p>I want to focus on the fragmentation stage, as it gives rise to jet substructure.
+Fragmentation is a fractal, self-similar process governed by the strong nuclear force: the quark emits gluons, which emit gluons, which emit gluons, and so on.
+The outcome is the fractal shower of quarks and gluons (&ldquo;partons&rdquo;) that you see.</p>
+
+<p>The cascade of emissions is known as the &ldquo;parton shower&rdquo;.</p>
+
+<h2 id="jet-fragmentation">Jet fragmentation</h2>
+
+<h4 id="emitting-gluons">Emitting Gluons</h4>
+
+<p>What&rsquo;s the probability for a gluon to emit another gluon with energy $E$ at angle $\theta$?
+Zooming into the cartoon, this looks like:
+<img src="gluonsplitting.png" width="30%">
+We can go through the calculation via Feynman diagrams, but there&rsquo;s a shortcut.</p>
+
+<p>At high energies, the strong force is (approximately) scale invariant.
+The answer must be the same at all scales, invariant under scalings $E\to\lambda E$ or $\theta\to\lambda\theta$.
+The simplest thing you could write down is:
+$$P(E,\theta) = \frac{2\alpha_s C_g}{\pi} \frac{1}{E\theta}$$
+where $\alpha_s$ is the strong coupling constant and $C_g=3$ is the gluon color factor.
+(For quarks, the color factor is $C_F = 4 / 3$.)
+This diverges when the emitted gluon is soft ($E\to 0$) or collinear ($\theta\to 0$) to the original gluon!</p>
+
+<p>There is a very nice and detailed discussion of the strong force from this perspective by <a href="https://arxiv.org/abs/1709.06195" target="_blank">Andrew Larkoski</a>.
+He takes this logic quite far, going as far as calculating substructure observables such as jet mass.</p>
+
+<p><em>The punchline</em>: gluons are uniformly emitted in $(\ln E, \ln \theta)$, the &ldquo;Lund plane&rdquo;.
+This enhances soft and collinear emissions, creating jets and their substructure.
+There are myriad corrections to this picture, but this is the core idea.</p>
+
+<h4 id="generating-jets">Generating jets</h4>
+
+<p>Let&rsquo;s now implement a model of fragmentation that you can take home with you, using the ideas that underpin the parton shower.</p>
+
+<p>You&rsquo;ll notice that the &ldquo;probability&rdquo; $P(E,\theta)$ above diverges.
+The leading emission can&rsquo;t be uniformly distributed in the Lund plane &ndash; the party has to end somewhere.
+A more careful treatment yields that the probability to emit a gluon with energy $E$ at angle $\theta$ is more like:
+$$P(E,\theta) = \frac{2\alpha_s C_g}{\pi} \frac{1}{E\theta} e^{-\frac{\alpha_s C_g}{\pi} \ln^2 E\theta}$$
+which is a true probability distribution.</p>
+
+<p>Plotting this result for quark jets, with $\alpha_s = 0.1$ and $C_q = \frac{4}{3}$, gives us the following visualization of the Lund plane.
+<img src="lundplanesketch.png" width="60%"></p>
+
+<p>You can also turn this around and iteratively sample from $p(E,\theta)$ to make your own toy parton shower!</p>
+
+<h4 id="going-further">Going Further</h4>
+
+<p>How well does our discussion stand up to actual scrutiny?
+Fully understanding fragmentation is much more complicated than this simple picture.</p>
+
+<p>The scale invariance of the strong force is only approximate.
+The strong coupling constant &ldquo;runs&rdquo;, taking different values at different energy scales.
+Emissions in the Lund plane aren&rsquo;t precisely uniform and differ between quarks and gluons.
+Hadronization kicks in and cuts off fragmentation at scales around 1 GeV.</p>
+
+<p>Nonetheless, the essential lessons we&rsquo;ve learned persist.</p>
+
+<p><a href="https://arxiv.org/abs/2004.03540" target="_blank">The ATLAS collaboration</a> just recently looked inside jets and measured the Lund Plane emission profile in its full glory.
+Can you make sense of what you see?
+<img src="atlaslund.png" width="85%">
+The result is both scientifically and visually beautiful!</p>
+
+    </div>
+
+    
+
+
+
+
+
+    
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      
+	  
+
+	  
+	  &copy; 2019 	  Eric M. Metodiev
+
+
+	  
+	  
+	  
+
+      
+
+	  
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

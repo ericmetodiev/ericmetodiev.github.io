@@ -65,6 +65,107 @@
     </item>
     
     <item>
+      <title>The Fractal Lives of Jets</title>
+      <link>/post/jetformation/</link>
+      <pubDate>Thu, 10 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/jetformation/</guid>
+      <description>
+
+&lt;h2 id=&#34;how-a-jet-gets-its-shape&#34;&gt;How a jet gets its shape&lt;/h2&gt;
+
+&lt;p&gt;Jets are sprays of particles emerging from high-energy particle collisions.
+They are ubiquitous at the LHC.
+But why do they exist and how do they form?&lt;/p&gt;
+
+&lt;p&gt;Protons are full of quarks and gluons.
+Naturally, their collisions give rise to many energetic quarks and gluons.
+We never see these in the detector, though.
+Instead, they undergo a multi-stage process to form jets of particles that we do observe.&lt;/p&gt;
+
+&lt;p&gt;Patterns in these sprays of particles allow us to better hunt for new physics or explore the strong nuclear force.
+These patterns are known as jet &amp;ldquo;substructure&amp;rdquo;.
+Here, I want to highlight the fractal nature of the patterns in jet formation.&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href=&#34;https://www.ericmetodiev.com/post/cmsopendata/&#34; target=&#34;_blank&#34;&gt;my recent post&lt;/a&gt; to see real jets in data using CMS Open Data.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a cartoon of the jet formation process that I made to give you the idea.
+&lt;img src=&#34;./jetcartoon.jpg&#34; width=&#34;95%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s unpack this.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Collision:&lt;/strong&gt; Protons collide. Often, an energetic quark (plus other stuff) comes out.&lt;br /&gt;
+&lt;strong&gt;Fragmentation:&lt;/strong&gt; The quark &amp;ldquo;fragments&amp;rdquo; into a fractal of quarks and gluons. &lt;br /&gt;
+&lt;strong&gt;Hadronization:&lt;/strong&gt; The quarks and gluons &amp;ldquo;hadronize&amp;rdquo; into the observed particles.&lt;/p&gt;
+
+&lt;p&gt;This jet has &amp;ldquo;two-pronged&amp;rdquo; substructure: its energy is mostly found in two clusters.
+This traces back to an energetic gluon emission during fragmentation.&lt;/p&gt;
+
+&lt;p&gt;I want to focus on the fragmentation stage, as it gives rise to jet substructure.
+Fragmentation is a fractal, self-similar process governed by the strong nuclear force: the quark emits gluons, which emit gluons, which emit gluons, and so on.
+The outcome is the fractal shower of quarks and gluons (&amp;ldquo;partons&amp;rdquo;) that you see.&lt;/p&gt;
+
+&lt;p&gt;The cascade of emissions is known as the &amp;ldquo;parton shower&amp;rdquo;.&lt;/p&gt;
+
+&lt;h2 id=&#34;jet-fragmentation&#34;&gt;Jet fragmentation&lt;/h2&gt;
+
+&lt;h4 id=&#34;emitting-gluons&#34;&gt;Emitting Gluons&lt;/h4&gt;
+
+&lt;p&gt;What&amp;rsquo;s the probability for a gluon to emit another gluon with energy $E$ at angle $\theta$?
+Zooming into the cartoon, this looks like:
+&lt;img src=&#34;gluonsplitting.png&#34; width=&#34;30%&#34;&gt;
+We can go through the calculation via Feynman diagrams, but there&amp;rsquo;s a shortcut.&lt;/p&gt;
+
+&lt;p&gt;At high energies, the strong force is (approximately) scale invariant.
+The answer must be the same at all scales, invariant under scalings $E\to\lambda E$ or $\theta\to\lambda\theta$.
+The simplest thing you could write down is:
+$$P(E,\theta) = \frac{2\alpha_s C_g}{\pi} \frac{1}{E\theta}$$
+where $\alpha_s$ is the strong coupling constant and $C_g=3$ is the gluon color factor.
+(For quarks, the color factor is $C_F = 4 / 3$.)
+This diverges when the emitted gluon is soft ($E\to 0$) or collinear ($\theta\to 0$) to the original gluon!&lt;/p&gt;
+
+&lt;p&gt;There is a very nice and detailed discussion of the strong force from this perspective by &lt;a href=&#34;https://arxiv.org/abs/1709.06195&#34; target=&#34;_blank&#34;&gt;Andrew Larkoski&lt;/a&gt;.
+He takes this logic quite far, going as far as calculating substructure observables such as jet mass.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;The punchline&lt;/em&gt;: gluons are uniformly emitted in $(\ln E, \ln \theta)$, the &amp;ldquo;Lund plane&amp;rdquo;.
+This enhances soft and collinear emissions, creating jets and their substructure.
+There are myriad corrections to this picture, but this is the core idea.&lt;/p&gt;
+
+&lt;h4 id=&#34;generating-jets&#34;&gt;Generating jets&lt;/h4&gt;
+
+&lt;p&gt;Let&amp;rsquo;s now implement a model of fragmentation that you can take home with you, using the ideas that underpin the parton shower.&lt;/p&gt;
+
+&lt;p&gt;You&amp;rsquo;ll notice that the &amp;ldquo;probability&amp;rdquo; $P(E,\theta)$ above diverges.
+The leading emission can&amp;rsquo;t be uniformly distributed in the Lund plane &amp;ndash; the party has to end somewhere.
+A more careful treatment yields that the probability to emit a gluon with energy $E$ at angle $\theta$ is more like:
+$$P(E,\theta) = \frac{2\alpha_s C_g}{\pi} \frac{1}{E\theta} e^{-\frac{\alpha_s C_g}{\pi} \ln^2 E\theta}$$
+which is a true probability distribution.&lt;/p&gt;
+
+&lt;p&gt;Plotting this result for quark jets, with $\alpha_s = 0.1$ and $C_q = \frac{4}{3}$, gives us the following visualization of the Lund plane.
+&lt;img src=&#34;lundplanesketch.png&#34; width=&#34;60%&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;You can also turn this around and iteratively sample from $p(E,\theta)$ to make your own toy parton shower!&lt;/p&gt;
+
+&lt;h4 id=&#34;going-further&#34;&gt;Going Further&lt;/h4&gt;
+
+&lt;p&gt;How well does our discussion stand up to actual scrutiny?
+Fully understanding fragmentation is much more complicated than this simple picture.&lt;/p&gt;
+
+&lt;p&gt;The scale invariance of the strong force is only approximate.
+The strong coupling constant &amp;ldquo;runs&amp;rdquo;, taking different values at different energy scales.
+Emissions in the Lund plane aren&amp;rsquo;t precisely uniform and differ between quarks and gluons.
+Hadronization kicks in and cuts off fragmentation at scales around 1 GeV.&lt;/p&gt;
+
+&lt;p&gt;Nonetheless, the essential lessons we&amp;rsquo;ve learned persist.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://arxiv.org/abs/2004.03540&#34; target=&#34;_blank&#34;&gt;The ATLAS collaboration&lt;/a&gt; just recently looked inside jets and measured the Lund Plane emission profile in its full glory.
+Can you make sense of what you see?
+&lt;img src=&#34;atlaslund.png&#34; width=&#34;85%&#34;&gt;
+The result is both scientifically and visually beautiful!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Adventures with Public Collider Data</title>
       <link>/post/cmsopendata/</link>
       <pubDate>Wed, 09 Oct 2019 00:00:00 +0000</pubDate>
@@ -379,16 +480,6 @@ By applying CWoLa (&amp;ldquo;training a koala&amp;rdquo;?) in an interesting wa
       <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
       
       <guid>/talk/mlforjets2020/</guid>
-      <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Data ex Machina: Machine Learning with Public Collider Data</title>
-      <link>/talk/amld2020/</link>
-      <pubDate>Fri, 16 Nov 2018 00:00:00 -0500</pubDate>
-      
-      <guid>/talk/amld2020/</guid>
       <description>&lt;p&gt;#Embed your slides or video here using &lt;a href=&#34;https://sourcethemes.com/academic/post/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;. Further details can easily be added using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
