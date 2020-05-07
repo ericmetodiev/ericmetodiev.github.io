@@ -11,6 +11,24 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>2020</title>
+      <link>/publication/2020/</link>
+      <pubDate>Thu, 07 May 2020 00:00:01 -0400</pubDate>
+      
+      <guid>/publication/2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>OmniFold: A Method to Simultaneously Unfold All Observables</title>
+      <link>/publication/omnifold/</link>
+      <pubDate>Thu, 07 May 2020 00:00:00 -0400</pubDate>
+      
+      <guid>/publication/omnifold/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>The Fractal Lives of Jets</title>
       <link>/post/jetformation/</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0000</pubDate>
@@ -113,15 +131,6 @@ The result is both scientifically and visually beautiful!&lt;/p&gt;
     </item>
     
     <item>
-      <title>2020</title>
-      <link>/publication/2020/</link>
-      <pubDate>Fri, 10 Apr 2020 00:00:00 -0400</pubDate>
-      
-      <guid>/publication/2020/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>The Hidden Geometry of Particle Collisions</title>
       <link>/publication/eventgeometry/</link>
       <pubDate>Thu, 09 Apr 2020 00:00:00 -0400</pubDate>
@@ -154,15 +163,6 @@ The result is both scientifically and visually beautiful!&lt;/p&gt;
       <pubDate>Thu, 21 Nov 2019 01:00:00 -0500</pubDate>
       
       <guid>/publication/2019/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OmniFold: A Method to Simultaneously Unfold All Observables</title>
-      <link>/publication/omnifold/</link>
-      <pubDate>Thu, 21 Nov 2019 00:00:00 -0500</pubDate>
-      
-      <guid>/publication/omnifold/</guid>
       <description></description>
     </item>
     
